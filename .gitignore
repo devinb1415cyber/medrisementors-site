@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Editor/agent
+.claude/
+
+# Local theme backups — not part of the live site
+.theme-backup/
+.theme-backup-vivid/
