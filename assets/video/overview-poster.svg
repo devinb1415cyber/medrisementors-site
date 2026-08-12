@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="MedRise Mentors overview video">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b4332"/>
+      <stop offset="1" stop-color="#10261b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <g fill="none" stroke="#7cb94a" stroke-opacity="0.28">
+    <ellipse cx="900" cy="300" rx="90" ry="70"/>
+    <ellipse cx="900" cy="300" rx="170" ry="132"/>
+    <ellipse cx="900" cy="300" rx="255" ry="196"/>
+    <ellipse cx="900" cy="300" rx="345" ry="264"/>
+  </g>
+  <circle cx="640" cy="330" r="66" fill="#7cb94a"/>
+  <path d="M620 300 L676 330 L620 360 Z" fill="#10261b"/>
+  <text x="640" y="470" text-anchor="middle" fill="#f8f7f4" font-family="'Playfair Display',Georgia,serif" font-size="52" font-weight="800">Meet MedRise Mentors</text>
+  <text x="640" y="520" text-anchor="middle" fill="#8ec95b" font-family="'IBM Plex Mono',monospace" font-size="22" letter-spacing="4">WATCH OUR STORY</text>
+</svg>
