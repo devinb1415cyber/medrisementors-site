@@ -1,8 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-shape-rendering="geometricPrecision"
-width="512" height="512" viewBox="86 352 314 314">
-  <metadata>null</metadata>
-  <rect x="86" y="352" width="314" height="314" rx="72" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" shape-rendering="geometricPrecision"><defs><clipPath id="m"><rect x="86" y="352" width="314" height="314"/></clipPath></defs><rect width="512" height="512" fill="#edf4e0"/><g transform="translate(51.20,51.20) scale(1.3045) translate(-86,-352)"><g clip-path="url(#m)">
+  
 
 <path d="
 M 122.478 609.117
@@ -1083,4 +1080,4 @@ C 848.537 498.455 848.326 486.309 848.544 474.134
 C 848.598 471.136 848.228 468.056 848.412 465.08 Z"
 opacity="1" fill="rgb(160,214,53)" fill-rule="evenodd" />
 
-</svg>
+</g></g></svg>
