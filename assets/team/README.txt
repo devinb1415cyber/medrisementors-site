@@ -37,4 +37,4 @@ MENTOR DIRECTORY (mentors.html)
 Mentor photos live in this same folder as firstname-lastname.jpg (e.g.
 bryce-wittman.jpg) and are wired in as <img class="m-avatar">. Mentors without
 a photo keep their colored initials circle. Still missing a photo:
-  Lexie Tarquine, Nake Singh
+  Lexie Tarquine, Nake Singh, Diya Mathew
