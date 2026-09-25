@@ -19,9 +19,22 @@ Executive team:
 
 Outreach mentor coordinators:
   rahul-sharma.jpg       Rahul Sharma       (Outreach Mentor Coordinator)
+  dominic-allocco.jpg    Dominic Allocco    (Outreach Mentor Coordinator)
+  jacob-purkey.jpg       Jacob Purkey       (Outreach Mentor Coordinator)
+  hayeon-ryou.jpg        Hayeon Ryou        (Outreach Mentor Coordinator)
+  seth-meadows.jpg       Seth Meadows       (Outreach Mentor Coordinator)
+  reyan-naik.jpg         Reyan Naik         (Outreach Mentor Coordinator)
+  bryce-wittman.jpg      Bryce Wittman      (Outreach Mentor Coordinator)
 
 After adding files, tell Claude which names you added and it will wire
 each photo into the page.
 
 Social media brand ambassadors:
   dervens-michaud.jpg    Dervens Michaud    (Social Media Brand Ambassador)
+
+MENTOR DIRECTORY (mentors.html)
+===============================
+Mentor photos live in this same folder as firstname-lastname.jpg (e.g.
+bryce-wittman.jpg) and are wired in as <img class="m-avatar">. Mentors without
+a photo keep their colored initials circle. Still missing a photo:
+  Lexie Tarquine, Nake Singh
