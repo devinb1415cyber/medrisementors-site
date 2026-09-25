@@ -22,3 +22,6 @@ Outreach mentor coordinators:
 
 After adding files, tell Claude which names you added and it will wire
 each photo into the page.
+
+Social media brand ambassadors:
+  dervens-michaud.jpg    Dervens Michaud    (Social Media Brand Ambassador)
