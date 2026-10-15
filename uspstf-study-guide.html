@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USPSTF A &amp; B Recommendations — MedRise Mentors</title>
+<link rel="icon" href="/favicon-v2.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32x32-v2.png" sizes="32x32" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:ital,wght@0,300..700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── exact tokens from medrisementors.org ── */
+:root{
+  --paper:#f8f7f4;
+  --paper-card:#ffffff;
+  --sage:#e9efe3;
+  --sage-2:#f1f4ec;
+  --line:#dbe4d3;
+  --line-soft:#e7ede1;
+  --forest:#1b4332;
+  --forest-2:#245239;
+  --forest-deep:#10261b;
+  --ink:#1c2a22;
+  --muted:#54685b;
+  --muted-2:#6f8071;
+  --lime:#7cb94a;
+  --lime-deep:#4f8a2c;
+  --lime-wash:#edf4e0;
+  --r:18px;
+  --r-sm:12px;
+  --r-pill:999px;
+  --sh-1:0 1px 2px rgba(16,38,27,.05);
+  --sh-2:0 2px 8px rgba(16,38,27,.05),0 14px 40px rgba(16,38,27,.06);
+  --maxw:1200px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  /* grade badges */
+  --ga:#1b4332;--ga-l:#d0ebd0;
+  --gb:#4f8a2c;--gb-l:#edf4e0;
+  /* quick ref gold */
+  --gold:#8a6000;--gold-l:#fef7e0;
+}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:1.08rem;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+p{margin:0}
+
+/* ── SITE HEADER (matches medrisementors.org nav) ── */
+.site-header{
+  background:rgba(248,247,244,.92);
+  backdrop-filter:blur(12px) saturate(1.2);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:60;
+}
+.site-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  height:74px;gap:1.5rem;
+  width:min(var(--maxw),100% - 2.5rem);
+  margin-inline:auto;
+}
+.brand{display:inline-flex;align-items:center;gap:.7rem;flex-shrink:0}
+.brand-mark{height:36px;width:auto}
+.brand-text-wrap{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:"Playfair Display",serif;font-weight:800;font-size:1.3rem;color:var(--forest);letter-spacing:-.02em}
+.brand-name .nm-rise{color:var(--lime-deep)}
+.brand-sub{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:var(--lime-deep);margin-top:.15rem;padding-left:.1rem}
+
+/* ── HERO BAND ── */
+.hero{
+  background:linear-gradient(150deg,var(--forest-deep) 0%,var(--forest) 55%,var(--forest-2) 100%);
+  color:#fff;
+  padding:clamp(3rem,6vw,5rem) 0 clamp(2.5rem,5vw,4rem);
+}
+.hero-inner{
+  width:min(var(--maxw),100% - 2.5rem);
+  margin-inline:auto;
+}
+.hero-eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--lime);font-weight:500;
+  display:inline-flex;align-items:center;gap:.6rem;
+  margin-bottom:1.1rem;
+}
+.hero-eyebrow::before{content:"";width:26px;height:1.5px;background:var(--lime);display:inline-block}
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(2.2rem,4.8vw,3.8rem);
+  font-weight:900;line-height:1.05;letter-spacing:-.02em;
+  color:#fff;margin-bottom:1.1rem;
+}
+.hero h1 em{font-style:italic;color:var(--lime);font-weight:800}
+.hero-lede{
+  font-size:clamp(1rem,1.5vw,1.2rem);
+  color:rgba(255,255,255,.72);
+  max-width:56ch;line-height:1.6;
+  margin-bottom:2rem;
+}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.5rem}
+.hbadge{
+  display:inline-flex;align-items:center;gap:.45rem;
+  padding:.32rem .85rem;border-radius:var(--r-pill);
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;letter-spacing:.03em;
+}
+.hbadge-a{background:var(--lime-wash);color:var(--forest-deep)}
+.hbadge-b{background:rgba(124,185,74,.2);border:1px solid rgba(124,185,74,.4);color:var(--lime)}
+.hbadge-n{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.65)}
+
+/* ── STICKY TOOLBAR ── */
+.toolbar{
+  background:var(--paper-card);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:74px;z-index:50;
+}
+.tb-inner{
+  width:min(var(--maxw),100% - 2.5rem);
+  margin-inline:auto;
+  display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;
+  padding:.75rem 0;
+}
+.tabs{display:flex;overflow-x:auto;scrollbar-width:none;gap:0;flex-shrink:0}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{
+  padding:.5rem .95rem;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.72rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted);background:none;border:none;
+  border-bottom:2.5px solid transparent;cursor:pointer;white-space:nowrap;
+  transition:color .15s,border-color .15s;
+}
+.tab-btn:hover{color:var(--forest)}
+.tab-btn.on{color:var(--forest);border-bottom-color:var(--lime)}
+
+.tb-sep{width:1px;height:28px;background:var(--line);flex-shrink:0}
+
+.sw{position:relative;flex:1;min-width:160px;max-width:270px}
+.sw input{
+  width:100%;padding:.42rem .7rem .42rem 2rem;
+  border:1px solid var(--line);border-radius:var(--r-sm);
+  font-family:"Source Serif 4",serif;font-size:.85rem;color:var(--ink);
+  background:var(--sage-2);outline:none;
+  transition:border-color .15s,box-shadow .15s;
+}
+.sw input:focus{border-color:var(--lime-deep);box-shadow:0 0 0 2px rgba(79,138,44,.15);background:#fff}
+.si{position:absolute;left:.65rem;top:50%;transform:translateY(-50%);color:var(--muted-2);font-size:.78rem}
+
+.chip{
+  padding:.32rem .85rem;border:1.5px solid var(--line);
+  border-radius:var(--r-pill);
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:500;letter-spacing:.03em;
+  background:var(--paper-card);color:var(--muted);cursor:pointer;
+  transition:all .15s;white-space:nowrap;
+}
+.chip:hover{border-color:var(--forest);color:var(--forest)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip.ona{background:var(--forest);border-color:var(--forest);color:#fff}
+.chip.onb{background:var(--lime-deep);border-color:var(--lime-deep);color:#fff}
+
+.rc{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--muted-2);white-space:nowrap}
+.rc b{color:var(--forest);font-weight:600}
+
+/* ── MAIN / GRID ── */
+.main{width:min(var(--maxw),100% - 2.5rem);margin:0 auto;padding:2rem 0 4rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}
+.empty{text-align:center;padding:4rem 1rem;color:var(--muted);font-family:"IBM Plex Mono",monospace;font-size:.85rem}
+
+/* ── CARDS ── */
+.card{
+  background:var(--paper-card);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  overflow:hidden;cursor:pointer;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
+  box-shadow:var(--sh-1);
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh-2);border-color:var(--line-soft)}
+.card.open{border-color:var(--lime-deep)}
+.ct{padding:1.15rem 1.25rem .9rem}
+.ch{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.5rem}
+.gd{
+  width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:"IBM Plex Mono",monospace;font-size:.8rem;font-weight:600;flex-shrink:0;margin-top:.1rem;
+}
+.gA{background:var(--ga-l);color:var(--ga)}
+.gB{background:var(--gb-l);color:var(--gb)}
+.ctitle{font-family:"Playfair Display",serif;font-size:1rem;font-weight:700;color:var(--forest);line-height:1.25;padding-top:.1rem}
+.cpop{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.7rem;color:var(--muted-2);line-height:1.45;margin-bottom:.75rem;
+  letter-spacing:.01em;
+}
+.ks{
+  background:var(--lime-wash);border-radius:var(--r-sm);
+  padding:.55rem .8rem;margin-bottom:.7rem;
+  border-left:3px solid var(--lime);
+}
+.kl{font-family:"IBM Plex Mono",monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--lime-deep);font-weight:600;margin-bottom:.2rem}
+.kv{font-size:.88rem;color:var(--forest-deep);line-height:1.45;font-weight:400}
+.tags{display:flex;flex-wrap:wrap;gap:.32rem;padding:0 1.25rem .85rem}
+.tag{padding:.18rem .52rem;border-radius:var(--r-pill);font-family:"IBM Plex Mono",monospace;font-size:.62rem;font-weight:500;letter-spacing:.04em}
+.eh{
+  font-family:"IBM Plex Mono",monospace;font-size:.65rem;color:var(--muted-2);
+  text-align:right;padding:.35rem 1.25rem .45rem;
+}
+.det{display:none;border-top:1px solid var(--line);padding:1.05rem 1.25rem 1.15rem;background:var(--sage-2)}
+.det.open{display:block}
+.dl{margin-bottom:.9rem}
+.dll{font-family:"IBM Plex Mono",monospace;font-size:.63rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.3rem;font-weight:500}
+.dlt{font-size:.9rem;color:var(--muted);line-height:1.65}
+.pearl{
+  background:var(--gold-l);border:1px solid rgba(138,96,0,.2);
+  border-radius:var(--r-sm);padding:.7rem .9rem;
+  font-size:.88rem;color:var(--forest-deep);line-height:1.6;
+}
+.plbl{font-family:"IBM Plex Mono",monospace;font-size:.62rem;font-weight:600;letter-spacing:.06em;color:var(--gold);display:block;margin-bottom:.3rem;text-transform:uppercase}
+.dtag{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.62rem;
+  color:var(--muted-2);background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:.13rem .52rem;margin-top:.6rem;
+}
+
+/* ── AGE RANGE VIEW ── */
+.age-band{background:var(--paper-card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:1rem;box-shadow:var(--sh-1)}
+.ab-header{display:flex;align-items:center;gap:1rem;padding:1rem 1.35rem;background:linear-gradient(135deg,var(--forest-deep),var(--forest));cursor:pointer;user-select:none}
+.ab-header:hover{filter:brightness(1.08)}
+.ab-age{font-family:"Playfair Display",serif;font-size:1.2rem;font-weight:800;color:#fff;line-height:1.1}
+.ab-sub{font-family:"IBM Plex Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-top:.2rem}
+.ab-count{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.7rem;background:rgba(124,185,74,.22);border:1px solid rgba(124,185,74,.4);color:var(--lime);padding:.25rem .75rem;border-radius:var(--r-pill);flex-shrink:0;white-space:nowrap}
+.ab-toggle{font-family:"IBM Plex Mono",monospace;font-size:1.1rem;color:rgba(255,255,255,.5);flex-shrink:0;width:20px;text-align:center}
+.ab-body{display:none;padding:1.1rem 1.35rem 1.35rem;border-top:1px solid var(--line)}
+.ab-body.open{display:block}
+.ab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:.6rem}
+.ab-item{background:var(--paper-card);border:1px solid var(--line-soft);border-radius:10px;padding:.65rem .9rem;display:flex;align-items:flex-start;gap:.6rem;transition:box-shadow .15s}
+.ab-item:hover{box-shadow:0 2px 8px rgba(16,38,27,.08)}
+.ab-gd{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"IBM Plex Mono",monospace;font-size:.68rem;font-weight:700;flex-shrink:0;margin-top:.05rem}
+.ab-gA{background:var(--ga-l);color:var(--ga)}
+.ab-gB{background:var(--gb-l);color:var(--gb)}
+.ab-header-main{display:flex;align-items:flex-start;gap:.75rem;flex:1;min-width:0}
+.ab-icon{font-size:1.5rem;flex-shrink:0;margin-top:.1rem;line-height:1}
+.ab-context{font-family:"IBM Plex Mono",monospace;font-size:.6rem;color:rgba(255,255,255,.55);margin-top:.25rem;line-height:1.4;max-width:500px}
+.ab-section{margin-bottom:1.1rem}
+.ab-section:last-child{margin-bottom:0}
+.ab-cat-label{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.63rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .7rem;border-radius:var(--r-pill);margin-bottom:.6rem}
+.ab-info{}
+.ab-topic{font-family:"Playfair Display",serif;font-size:.88rem;font-weight:700;color:var(--forest);line-height:1.2;margin-bottom:.2rem}
+.ab-key{font-family:"IBM Plex Mono",monospace;font-size:.67rem;color:var(--muted);line-height:1.5}
+.ab-note{font-family:"IBM Plex Mono",monospace;font-size:.62rem;background:var(--lime-wash);border-radius:4px;padding:.15rem .4rem;color:var(--lime-deep);margin-top:.3rem;display:inline-block}
+.age-intro{margin-bottom:1.4rem;padding:.9rem 1.25rem;background:var(--lime-wash);border:1px solid var(--line);border-radius:var(--r);border-left:4px solid var(--lime)}
+.age-intro p{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--forest-deep);line-height:1.65}
+.age-intro strong{color:var(--forest)}
+
+/* ── FLOWCHARTS ── */
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:1.5rem}
+.fc{background:var(--paper-card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-1)}
+.fh{padding:.9rem 1.3rem;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.75rem;background:var(--sage-2)}
+.fh h3{font-family:"Playfair Display",serif;font-size:1.05rem;font-weight:800;color:var(--forest);flex:1;line-height:1.2;letter-spacing:-.02em}
+.fh-grade{font-family:"IBM Plex Mono",monospace;font-size:.65rem;font-weight:700;padding:.25rem .65rem;border-radius:var(--r-pill);letter-spacing:.04em;flex-shrink:0}
+.fb{padding:1.25rem}
+/* HTML flowchart nodes */
+.hflow{display:flex;flex-direction:column;align-items:center;gap:0;padding:.5rem 1rem}
+.hflow-row{display:flex;align-items:center;justify-content:center;gap:.75rem;width:100%}
+.hf-node{border-radius:10px;padding:.5rem .9rem;text-align:center;font-family:"Source Serif 4",Georgia,serif;font-size:.95rem;line-height:1.4;font-weight:400;letter-spacing:-.01em;max-width:200px;align-self:center;width:fit-content}
+.hf-node.start{background:var(--forest);color:#fff;border-radius:999px;font-family:"Playfair Display",serif;font-weight:700;font-size:1.02rem;padding:.55rem 1.7rem;letter-spacing:-.01em;max-width:none;width:auto;align-self:center}
+.hf-node.decision{background:#fff;border:1.5px solid #bdd4c5;color:var(--forest-deep);font-weight:600;font-family:"Source Serif 4",Georgia,serif;box-shadow:0 1px 4px rgba(27,67,50,.07);max-width:260px;width:auto}
+.hf-node.grade-a{background:#d0ebd0;border:1.5px solid #96c896;color:#174028;font-weight:700;font-family:"Playfair Display",serif;font-size:1.05rem}
+.hf-node.grade-b{background:#e6f2d8;border:1.5px solid #b0d48c;color:#3a6620;font-weight:700;font-family:"Playfair Display",serif;font-size:1.05rem}
+.hf-node.action{background:#fafaf8;border:1px solid #dde5d5;color:#4a5e52;font-size:.94rem;font-family:"Source Serif 4",Georgia,serif}
+.hf-node.stop{background:#fef2f2;border:1.5px solid #f5c6c6;color:#a82020;font-size:.94rem;font-family:"Source Serif 4",Georgia,serif}
+.gate-wrap{background:#fff;border:1.5px solid #bdd4c5;border-radius:12px;overflow:hidden;width:100%;max-width:560px;align-self:center;box-shadow:0 1px 6px rgba(27,67,50,.07)}
+.gate-title{background:var(--forest);color:#fff;font-family:"Playfair Display",serif;font-weight:700;font-size:1.02rem;padding:.55rem 1rem;text-align:center}
+.gate-row{display:grid;grid-template-columns:1fr auto;align-items:center;padding:.5rem 1rem;gap:.5rem}
+.gate-q{font-family:"Source Serif 4",Georgia,serif;font-size:.96rem;color:var(--forest-deep);font-weight:600;line-height:1.35}
+.gate-no{display:flex;align-items:center;gap:.3rem;white-space:nowrap}
+.gate-no-label{font-family:"Source Serif 4",Georgia,serif;font-size:.82rem;color:#a82020;font-style:italic}
+.gate-no-val{background:#fef2f2;border:1px solid #f5c6c6;border-radius:6px;padding:.15rem .45rem;font-family:"Source Serif 4",Georgia,serif;font-size:.82rem;color:#a82020}
+.gate-divider{height:1px;background:var(--line);margin:0 1rem}
+.gate-pass{background:var(--sage);padding:.4rem 1rem;display:flex;align-items:center;justify-content:center}
+.gate-pass-label{font-family:"Source Serif 4",Georgia,serif;font-size:.9rem;color:var(--forest);font-style:italic;font-weight:600}
+.hf-optlist{background:#fafaf8;border:1px solid #dde5d5;border-radius:10px;padding:.6rem .85rem;display:flex;flex-direction:column;gap:.4rem;min-width:160px}
+.hf-optrow{display:flex;align-items:baseline;gap:.45rem;font-family:"Source Serif 4",Georgia,serif;font-size:.94rem;color:#4a5e52;line-height:1.4}
+.hf-optbullet{color:var(--lime);font-size:.55rem;flex-shrink:0;position:relative;top:-.05em}
+.hf-node.info{background:var(--gold-l);border:1px solid #e8d89a;color:#7a5200;font-size:.94rem;font-family:"Source Serif 4",Georgia,serif}
+.hf-arrow{display:flex;flex-direction:column;align-items:center;gap:1px;flex-shrink:0}
+.hf-arrow-v{width:1.5px;height:20px;background:#c8d8cc;margin:0 auto}
+.hf-arrow-h{width:28px;height:1.5px;background:#c8d8cc}
+.hf-arrow-tip{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #b8ccbe}
+.hf-arrow-tip-r{width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:5px solid #b8ccbe}
+.hf-label{font-family:"Source Serif 4",Georgia,serif;font-size:.82rem;color:var(--muted);margin:.1rem 0;font-style:italic}
+.hf-branch{display:grid;gap:.6rem;margin:.2rem 0;width:100%}
+.hf-branch.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hf-branch.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hf-branch.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.hf-bcell{display:flex;flex-direction:column;align-items:center;gap:.35rem;min-width:0}
+.hf-bcell-label{font-family:"Source Serif 4",Georgia,serif;font-size:.86rem;color:var(--muted);text-align:center;font-style:italic;font-weight:400;margin-bottom:.1rem}
+.hf-connector{width:100%;height:14px;position:relative;margin:-2px 0}
+.hf-connector svg{width:100%;height:100%;overflow:visible}
+
+/* ── QUICK REF TABLE ── */
+.qt-wrap{margin-top:2.5rem}
+.qth{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem}
+.qth h3{font-family:"Playfair Display",serif;font-size:1.25rem;font-weight:800;color:var(--forest)}
+.qth span{font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted-2)}
+.qt{width:100%;border-collapse:collapse;background:var(--paper-card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-1)}
+.qt thead th{background:var(--forest);color:#fff;padding:.6rem 1rem;text-align:left;font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.qt tbody tr{border-top:1px solid var(--line-soft)}
+.qt tbody tr:hover{background:var(--sage)}
+.qt td{padding:.55rem 1rem;vertical-align:top}
+.qt td:first-child{font-family:"Playfair Display",serif;font-size:.88rem;font-weight:700;color:var(--forest);white-space:nowrap}
+.qt td:nth-child(2){font-size:.8rem;color:var(--muted);line-height:1.45}
+.qt td:last-child{text-align:center;font-family:"IBM Plex Mono",monospace;font-size:.75rem;font-weight:700;width:40px}
+.ga-td{color:var(--ga)}.gb-td{color:var(--gb)}
+
+/* ── FOOTER ── */
+.footer{background:var(--forest-deep);color:rgba(196,211,194,.75);padding:clamp(2.5rem,5vw,4rem) 0}
+.footer-inner{width:min(var(--maxw),100% - 2.5rem);margin-inline:auto;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.footer-brand img{height:32px;width:auto;filter:brightness(0) invert(1);opacity:.7;margin-bottom:.6rem}
+.footer-brand p{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.03em;line-height:1.55}
+.footer-note{font-family:"IBM Plex Mono",monospace;font-size:.7rem;line-height:1.6;max-width:38ch}
+.footer-note a{color:var(--lime);text-decoration:underline;text-decoration-color:rgba(124,185,74,.4)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:2rem;padding-top:1.5rem}
+.footer-bottom p{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:rgba(196,211,194,.45);letter-spacing:.03em}
+
+@media(max-width:640px){
+  .tb-inner{gap:.45rem}
+  .tabs{width:100%}
+  .sw{min-width:120px}
+  .grid{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+  .qt td:first-child{white-space:normal}
+  .fb{padding:1rem .6rem}
+  .hflow{padding:.5rem 0}
+  .hf-branch{gap:.4rem}
+  .hf-node{max-width:100%;padding:.45rem .6rem}
+  .hf-node.action,.hf-node.stop,.hf-node.info,.hf-optrow{font-size:.84rem}
+  .hf-optlist{min-width:0;max-width:100%;padding:.5rem .6rem}
+  .hf-bcell-label,.hf-label{font-size:.78rem}
+}
+</style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="index.html" class="brand">
+      <img src="assets/logo-mark.svg" alt="MedRise Mentors" class="brand-mark">
+      <div class="brand-text-wrap">
+        <span class="brand-name">Med<span class="nm-rise">Rise</span> Mentors</span>
+        <span class="brand-sub">Peer mentorship</span>
+      </div>
+    </a>
+    <a href="resources.html#med-students" style="font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--muted);letter-spacing:.02em;">&#8592; All Resources</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Preventive Medicine</p>
+    <h1>USPSTF A <em>&amp;</em> B<br>Recommendations</h1>
+    <p class="hero-lede">Complete reference for the 54 Grade A and B preventive care recommendations from the U.S. Preventive Services Task Force. Sourced directly from the official USPSTF A &amp; B Recommendations PDF.</p>
+    <div class="hero-badges">
+      <span class="hbadge hbadge-a">&#x2713; Grade A &amp; B only</span>
+      <span class="hbadge hbadge-b">54 recommendations</span>
+      <span class="hbadge hbadge-n">8 clinical flowcharts</span>
+      <span class="hbadge hbadge-n">USPSTF source PDF</span>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY TOOLBAR -->
+<div class="toolbar">
+  <div class="tb-inner">
+    <div class="tabs">
+      <button class="tab-btn on" onclick="setTab('all',this)">All Topics</button>
+      <button class="tab-btn" onclick="setTab('cancer',this)">Cancer</button>
+      <button class="tab-btn" onclick="setTab('cvd',this)">CVD</button>
+      <button class="tab-btn" onclick="setTab('infection',this)">Infections</button>
+      <button class="tab-btn" onclick="setTab('mental',this)">Mental Health</button>
+      <button class="tab-btn" onclick="setTab('pregnancy',this)">Pregnancy</button>
+      <button class="tab-btn" onclick="setTab('metabolic',this)">Metabolic</button>
+      <button class="tab-btn" onclick="setTab('substance',this)">Substance Use</button>
+      <button class="tab-btn" onclick="setTab('prevention',this)">Prevention</button>
+      <button class="tab-btn" onclick="setTab('flow',this)">Flowcharts</button>
+      <button class="tab-btn" onclick="setTab('age',this)">By Age</button>
+    </div>
+    <div class="tb-sep"></div>
+    <div class="sw">
+      <span class="si">&#128269;</span>
+      <input type="search" id="srch" placeholder="Search topics…" oninput="render()">
+    </div>
+    <button class="chip on" onclick="setGrade('all',this)">All Grades</button>
+    <button class="chip" onclick="setGrade('A',this)">Grade A</button>
+    <button class="chip" onclick="setGrade('B',this)">Grade B</button>
+    <span class="rc"><b id="rc">54</b> shown</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+  <div id="cv">
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="em" style="display:none">No recommendations match your filters.</div>
+    <div id="qts"></div>
+  </div>
+  <div id="fv" style="display:none">
+    <div class="fgrid" id="fg"></div>
+  </div>
+  <div id="av" style="display:none">
+    <div id="ag"></div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logo-mark.svg" alt="MedRise Mentors">
+      <p>MedRise Mentors<br>Peer mentorship for future physicians</p>
+    </div>
+    <div class="footer-note">
+      <p>Content sourced from the <a href="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation-topics/uspstf-and-b-recommendations" target="_blank" rel="noopener">USPSTF A &amp; B Recommendations</a>. This resource is for educational purposes. Always verify with the current USPSTF guidelines for clinical use.</p>
+    </div>
+  </div>
+  <div class="footer-inner footer-bottom">
+    <p>&copy; 2025 MedRise Mentors. Educational use only. Not a substitute for clinical judgment.</p>
+  </div>
+</footer>
+
+<script>
+// tag color map
+const THX={
+  cancer:["#edf4e0","#4f8a2c"],
+  cvd:["#fce8e8","#8b2020"],
+  infection:["#e0eefb","#1a5c8a"],
+  mental:["#eeeafd","#3b2d80"],
+  pregnancy:["#fce5f6","#7a1a60"],
+  metabolic:["#fff3e0","#7a4a00"],
+  substance:["#fdf0d4","#7a4a00"],
+  prevention:["#e9efe3","#245239"]
+};
+
+const RECS=[
+  {id:1,grade:"B",topic:"Abdominal Aortic Aneurysm",pop:"Men aged 65-75 who have ever smoked",cat:"prevention",tags:["prevention","cvd"],
+    key:"1-time ultrasound in male ever-smokers aged 65-75",
+    rec:"The USPSTF recommends 1-time screening for AAA with ultrasonography in men aged 65-75 who have ever smoked.",
+    pearl:"'Ever smoked' = at least 100 cigarettes lifetime. Women and never-smokers are NOT recommended. One-time screen only.",date:"Dec 2019"},
+  {id:2,grade:"B",topic:"Anxiety — Adults",pop:"Adults 64 years or younger, including pregnant and postpartum persons",cat:"mental",tags:["mental","pregnancy"],
+    key:"Screen all adults up to age 64 for anxiety, including pregnant and postpartum",
+    rec:"The USPSTF recommends screening for anxiety disorders in adults, including pregnant and postpartum persons.",
+    pearl:"Age cutoff is 64. Contrast with depression, which explicitly includes older adults 65+. Both pregnant and postpartum are included.",date:"Jun 2023"},
+  {id:3,grade:"B",topic:"Anxiety — Children and Adolescents",pop:"Children and adolescents aged 8-18 years",cat:"mental",tags:["mental"],
+    key:"Screen ages 8-18 for anxiety (vs. 12-18 for depression/MDD)",
+    rec:"The USPSTF recommends screening for anxiety in children and adolescents aged 8 to 18 years.",
+    pearl:"8-18 for anxiety vs. 12-18 for MDD — anxiety starts younger. Don't swap these age ranges.",date:"Oct 2022"},
+  {id:4,grade:"B",topic:"Aspirin — Preeclampsia Prevention",pop:"Pregnant persons at high risk for preeclampsia",cat:"pregnancy",tags:["pregnancy","cvd"],
+    key:"81 mg/day low-dose aspirin after 12 weeks gestation in high-risk pregnancies",
+    rec:"The USPSTF recommends use of low-dose aspirin (81 mg/day) as preventive medication after 12 weeks of gestation in persons who are at high risk for preeclampsia.",
+    pearl:"Start AFTER 12 weeks. High-risk = prior preeclampsia, multifetal gestation, chronic HTN, T1/T2DM, CKD, or 2+ moderate risk factors.",date:"Sep 2021"},
+  {id:5,grade:"B",topic:"Asymptomatic Bacteriuria",pop:"Pregnant persons",cat:"pregnancy",tags:["pregnancy","infection"],
+    key:"Urine culture in pregnant persons only — Grade D for non-pregnant adults",
+    rec:"The USPSTF recommends screening for asymptomatic bacteriuria using urine culture in pregnant persons.",
+    pearl:"Grade D for non-pregnant adults — do NOT screen them. Only pregnant patients. Treat if positive to reduce pyelonephritis and preterm birth risk.",date:"Sep 2019"},
+  {id:6,grade:"B",topic:"BRCA Risk Assessment",pop:"Women with personal/family hx of breast, ovarian, tubal, or peritoneal cancer or at-risk ancestry",cat:"cancer",tags:["cancer"],
+    key:"Brief risk tool → genetic counseling → testing if indicated (3-step cascade)",
+    rec:"The USPSTF recommends that primary care clinicians assess women with a personal or family history of breast, ovarian, tubal, or peritoneal cancer or who have an ancestry associated with BRCA1/2 gene mutations with an appropriate brief familial risk assessment tool.",
+    pearl:"Three-step cascade: (1) brief risk assessment tool, (2) genetic counseling, (3) genetic testing. Primary care screens and refers — not everyone gets tested.",date:"Aug 2019"},
+  {id:7,grade:"B",topic:"Breast Cancer — Chemoprevention",pop:"Women at increased risk for breast cancer aged 35 years or older",cat:"cancer",tags:["cancer"],
+    key:"Offer tamoxifen, raloxifene, or aromatase inhibitors if high-risk AND low medication-risk",
+    rec:"The USPSTF recommends that clinicians offer to prescribe risk-reducing medications, such as tamoxifen, raloxifene, or aromatase inhibitors, to women who are at increased risk for breast cancer and at low risk for adverse medication effects.",
+    pearl:"Two conditions: (1) increased BC risk AND (2) low risk of adverse medication effects. All three drug classes are acceptable.",date:"Sep 2019"},
+  {id:8,grade:"B",topic:"Breast Cancer — Screening",pop:"Women aged 40-74 years",cat:"cancer",tags:["cancer"],
+    key:"Biennial screening mammography ages 40-74 (updated April 2024, previously age 50)",
+    rec:"The USPSTF recommends biennial screening mammography for women aged 40 to 74 years.",
+    pearl:"Updated April 2024 — now starts at 40 (previously 50). Biennial, not annual. Women 75+ have an I statement (insufficient evidence).",date:"Apr 2024"},
+  {id:9,grade:"B",topic:"Breastfeeding — Behavioral Counseling",pop:"Pregnant and postpartum women",cat:"pregnancy",tags:["pregnancy","prevention"],
+    key:"Provide or refer to breastfeeding support during pregnancy AND after birth",
+    rec:"The USPSTF recommends providing interventions or referrals, during pregnancy and after birth, to support breastfeeding.",
+    pearl:"Applies at both time points: during pregnancy AND after birth. Counseling and referral — not a medication.",date:"Apr 2025"},
+  {id:10,grade:"A",topic:"Cervical Cancer — Screening",pop:"Women aged 21-65 years",cat:"cancer",tags:["cancer","infection"],
+    key:"Ages 21-29: Pap q3y | Ages 30-65: Pap q3y OR hrHPV q5y OR cotesting q5y",
+    rec:"The USPSTF recommends screening for cervical cancer every 3 years with cervical cytology alone in women aged 21-29. For women aged 30-65, the USPSTF recommends screening every 3 years with cervical cytology alone, every 5 years with hrHPV testing alone, or every 5 years with hrHPV testing in combination with cytology (cotesting).",
+    pearl:"Know both brackets cold. HPV testing alone is NOT recommended for ages 21-29. No screening before 21 or after 65 (with adequate prior screening). Grade A.",date:"Aug 2018"},
+  {id:11,grade:"B",topic:"Chlamydia — Screening",pop:"Sexually active women 24 or younger; women 25+ at increased risk",cat:"infection",tags:["infection"],
+    key:"Universal for sexually active women age 24 and under; risk-based at 25 and older",
+    rec:"The USPSTF recommends screening for chlamydia in all sexually active women 24 years or younger and in women 25 years or older who are at increased risk for infection.",
+    pearl:"Age cutoff is 24, not 25. Same criteria as gonorrhea. No routine USPSTF recommendation for screening men.",date:"Sep 2021"},
+  {id:12,grade:"B",topic:"Gonorrhea — Screening",pop:"Sexually active women 24 or younger; women 25+ at increased risk",cat:"infection",tags:["infection"],
+    key:"Identical criteria to chlamydia — universal at 24 and under, risk-based at 25+",
+    rec:"The USPSTF recommends screening for gonorrhea in all sexually active women 24 years or younger and in women 25 years or older who are at increased risk for infection.",
+    pearl:"Chlamydia and gonorrhea have identical USPSTF criteria — often tested together with NAAT. Age cutoff is 24.",date:"Sep 2021"},
+  {id:13,grade:"B",topic:"Colorectal Cancer — Ages 45-49",pop:"Adults aged 45-49 years",cat:"cancer",tags:["cancer"],
+    key:"Grade B for ages 45-49 (age lowered from 50 in 2021)",
+    rec:"The USPSTF recommends screening for colorectal cancer in adults aged 45 to 49 years.",
+    pearl:"Grade B for 45-49 vs. Grade A for 50-75. Memorize: 45-49 = B, 50-75 = A, 76-85 = C (individualize), 85+ = D.",date:"May 2021"},
+  {id:14,grade:"A",topic:"Colorectal Cancer — Ages 50-75",pop:"Adults aged 50-75 years",cat:"cancer",tags:["cancer"],
+    key:"Grade A for ages 50-75 — any approved screening strategy",
+    rec:"The USPSTF recommends screening for colorectal cancer in all adults aged 50 to 75 years.",
+    pearl:"Grade A, the strongest recommendation. 76-85 = Grade C (individualize). Over 85 = Grade D. Multiple strategies acceptable.",date:"May 2021"},
+  {id:15,grade:"B",topic:"Depression — Adults",pop:"All adults including pregnant, postpartum, and older adults 65+",cat:"mental",tags:["mental","pregnancy"],
+    key:"Screen ALL adults for depression — including older adults 65+ (unlike anxiety which cuts off at 64)",
+    rec:"The USPSTF recommends screening for depression in the adult population, including pregnant and postpartum persons, as well as older adults.",
+    pearl:"Unlike anxiety (age 64 cutoff), depression screening explicitly includes older adults 65+. PHQ-9 is standard. PHQ-2 is a validated 2-question screen.",date:"Jun 2023"},
+  {id:16,grade:"B",topic:"Depression — Adolescents",pop:"Adolescents aged 12-18 years",cat:"mental",tags:["mental"],
+    key:"Screen for MDD ages 12-18 (anxiety goes down to 8 — depression does not)",
+    rec:"The USPSTF recommends screening for major depressive disorder (MDD) in adolescents aged 12 to 18 years.",
+    pearl:"Age 12-18 for depression vs. 8-18 for anxiety. PHQ-A (adolescent version) used. Children under 12 not recommended for depression screening.",date:"Oct 2022"},
+  {id:17,grade:"B",topic:"Falls Prevention — Older Adults",pop:"Community-dwelling adults 65+ at increased risk for falls",cat:"prevention",tags:["prevention"],
+    key:"Exercise interventions — NOT vitamin D — for community-dwelling adults 65+ at increased fall risk",
+    rec:"The USPSTF recommends exercise interventions to prevent falls in community-dwelling adults 65 years or older who are at increased risk for falls.",
+    pearl:"Specifically exercise interventions. USPSTF recommends AGAINST vitamin D for fall prevention. Must be community-dwelling AND at increased risk.",date:"Jun 2024"},
+  {id:18,grade:"A",topic:"Folic Acid Supplementation",pop:"All persons who plan to or could become pregnant",cat:"pregnancy",tags:["pregnancy","prevention"],
+    key:"0.4-0.8 mg (400-800 mcg) folic acid daily — Grade A, prevents neural tube defects",
+    rec:"The USPSTF recommends that all persons planning to or who could become pregnant take a daily supplement containing 0.4 to 0.8 mg (400 to 800 mcg) of folic acid.",
+    pearl:"Grade A. 'Could become pregnant' is intentionally broad. Standard dose 400-800 mcg; prior NTD pregnancy = 4 mg/day. Start at least 1 month before conception.",date:"Aug 2023"},
+  {id:19,grade:"B",topic:"Gestational Diabetes",pop:"Asymptomatic pregnant persons at 24 weeks gestation or after",cat:"metabolic",tags:["metabolic","pregnancy"],
+    key:"Screen asymptomatic pregnant persons at 24 weeks gestation or after",
+    rec:"The USPSTF recommends screening for gestational diabetes in asymptomatic pregnant persons at 24 weeks of gestation or after.",
+    pearl:"24 weeks is the USPSTF trigger for asymptomatic persons. Earlier screening in high-risk patients (obesity, prior GDM) is done clinically but that is separate from this recommendation.",date:"Aug 2021"},
+  {id:20,grade:"B",topic:"Healthy Diet and Physical Activity — CVD",pop:"Adults with cardiovascular disease risk factors",cat:"cvd",tags:["cvd","prevention"],
+    key:"Behavioral counseling for diet and exercise in adults with CVD risk factors (not universal)",
+    rec:"The USPSTF recommends offering or referring adults with cardiovascular disease risk factors to behavioral counseling interventions to promote a healthy diet and physical activity.",
+    pearl:"Must have CVD risk factors — not universal for all adults. Behavioral counseling only, not pharmacologic. Distinct from the statin recommendation.",date:"Nov 2020"},
+  {id:21,grade:"B",topic:"Healthy Weight Gain in Pregnancy",pop:"Pregnant persons",cat:"pregnancy",tags:["pregnancy","metabolic"],
+    key:"Behavioral counseling to promote healthy gestational weight gain and prevent excess",
+    rec:"The USPSTF recommends that clinicians offer pregnant persons effective behavioral counseling interventions aimed at promoting healthy weight gain and preventing excess gestational weight gain in pregnancy.",
+    pearl:"Behavioral intervention only — not pharmacologic. Goal is preventing excess gestational weight gain. Pairs with gestational diabetes prevention.",date:"May 2021"},
+  {id:22,grade:"B",topic:"Hepatitis B — Adults (Risk-Based)",pop:"Adolescents and adults at increased risk for HBV infection",cat:"infection",tags:["infection"],
+    key:"Risk-based HBV screening in non-pregnant adults — NOT universal (contrast with pregnancy)",
+    rec:"The USPSTF recommends screening for hepatitis B virus (HBV) infection in adolescents and adults at increased risk for infection.",
+    pearl:"Risk-based (not universal) for non-pregnant adults. Increased risk: HBV-endemic country of birth, unvaccinated household contacts, IVDU, MSM, HIV-positive. Contrast: Grade A universal in pregnancy.",date:"Dec 2020"},
+  {id:23,grade:"A",topic:"Hepatitis B — Pregnant Women",pop:"Pregnant women at first prenatal visit",cat:"infection",tags:["infection","pregnancy"],
+    key:"Grade A — universal HBV screen at first prenatal visit (vs. risk-based in non-pregnant adults)",
+    rec:"The USPSTF recommends screening for hepatitis B virus (HBV) infection in pregnant women at their first prenatal visit.",
+    pearl:"Grade A, universal in pregnancy. Grade B, risk-based in non-pregnant adults. Classic high-yield distinction. Timing: first prenatal visit specifically.",date:"Jul 2019"},
+  {id:24,grade:"B",topic:"Hepatitis C — Screening",pop:"Adults aged 18-79 years",cat:"infection",tags:["infection"],
+    key:"Nearly universal screen — all adults 18-79 for HCV regardless of risk factors",
+    rec:"The USPSTF recommends screening for hepatitis C virus (HCV) infection in adults aged 18 to 79 years.",
+    pearl:"Unlike HBV (risk-based in non-pregnant adults), HCV screening is nearly universal for adults 18-79 regardless of risk factors. A high-yield distinction.",date:"Mar 2020"},
+  {id:25,grade:"B",topic:"High BMI — Children and Adolescents",pop:"Children and adolescents 6 years or older with BMI at or above the 95th percentile",cat:"metabolic",tags:["metabolic"],
+    key:"BMI at or above 95th percentile, age 6+ → comprehensive intensive behavioral interventions",
+    rec:"The USPSTF recommends that clinicians provide or refer children and adolescents 6 years or older with a high body mass index (BMI) at or above the 95th percentile for age and sex to comprehensive, intensive behavioral interventions.",
+    pearl:"Threshold is 95th percentile (obesity), not 85th (overweight). Age 6 or older. Intervention must be intensive and multicomponent.",date:"Jun 2024"},
+  {id:26,grade:"A",topic:"HIV — General Screening",pop:"Adolescents and adults aged 15-65 years",cat:"infection",tags:["infection"],
+    key:"Screen ages 15-65 universal; outside that range only if at increased risk — Grade A",
+    rec:"The USPSTF recommends that clinicians screen for HIV infection in adolescents and adults aged 15 to 65 years. Younger adolescents and older adults who are at increased risk of infection should also be screened.",
+    pearl:"Grade A, 15-65 universal. Outside that range, screen only if at increased risk. Also Grade A separately for all pregnant persons.",date:"Jun 2019"},
+  {id:27,grade:"A",topic:"HIV — Pregnant Persons",pop:"All pregnant persons, including those presenting in labor with unknown HIV status",cat:"infection",tags:["infection","pregnancy"],
+    key:"Universal HIV screen in pregnancy — even at L&D if status unknown — Grade A",
+    rec:"The USPSTF recommends that clinicians screen for HIV infection in all pregnant persons, including those who present in labor or at delivery whose HIV status is unknown.",
+    pearl:"Even women arriving to L&D without prior prenatal care should be screened immediately. Grade A.",date:"Jun 2019"},
+  {id:28,grade:"A",topic:"Hypertension — Screening",pop:"Adults 18 years or older without known hypertension",cat:"cvd",tags:["cvd"],
+    key:"Screen all adults 18+; confirm with out-of-office BP before starting treatment",
+    rec:"The USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment.",
+    pearl:"Two-step: office OBPM → confirm out-of-office (ABPM or home BP monitoring) before treating. The out-of-office confirmation step is frequently missed and commonly tested.",date:"Apr 2021"},
+  {id:29,grade:"B",topic:"Hypertensive Disorders of Pregnancy",pop:"Asymptomatic pregnant persons",cat:"pregnancy",tags:["pregnancy","cvd"],
+    key:"BP monitoring throughout pregnancy — not just at first prenatal visit",
+    rec:"The USPSTF recommends screening for hypertensive disorders in pregnant persons with blood pressure measurements throughout pregnancy.",
+    pearl:"Ongoing BP monitoring throughout pregnancy, not just at first visit. Covers gestational HTN, preeclampsia, eclampsia, and HELLP syndrome.",date:"Sep 2023"},
+  {id:30,grade:"B",topic:"Intimate Partner Violence — Screening",pop:"Women of reproductive age, including pregnant and postpartum women",cat:"prevention",tags:["prevention","mental"],
+    key:"Screen all women of reproductive age for IPV — not limited to pregnant women",
+    rec:"The USPSTF recommends that clinicians screen for intimate partner violence (IPV) in women of reproductive age, including those who are pregnant and postpartum.",
+    pearl:"Women of reproductive age broadly, not limited to pregnant women. Evidence for routine screening in men is currently insufficient.",date:"Jun 2025"},
+  {id:31,grade:"B",topic:"Latent Tuberculosis Infection",pop:"Asymptomatic adults at increased risk for LTBI",cat:"infection",tags:["infection"],
+    key:"Screen for LTBI in increased-risk populations using TST or IGRA — not universal",
+    rec:"The USPSTF recommends screening for LTBI in populations at increased risk.",
+    pearl:"Increased risk: born in or frequent travel to high-burden countries, homeless, incarcerated, HCW with TB exposure, immunosuppressed. TST or IGRA both acceptable.",date:"May 2023"},
+  {id:32,grade:"B",topic:"Lung Cancer — Screening",pop:"Adults 50-80 with 20+ pack-year history, currently smoke or quit within 15 years",cat:"cancer",tags:["cancer","substance"],
+    key:"Annual LDCT: age 50-80 AND 20+ pack-years AND current smoker or quit less than 15 years ago",
+    rec:"The USPSTF recommends annual screening for lung cancer with low-dose computed tomography (LDCT) in adults aged 50-80 who have a 20 pack-year smoking history and currently smoke or have quit within the past 15 years.",
+    pearl:"ALL THREE criteria must be met. Stop screening if: quit 15+ years ago, OR health problem limits life expectancy or ability to have curative surgery.",date:"Mar 2021"},
+  {id:33,grade:"A",topic:"Ocular Prophylaxis — Newborns",pop:"All newborns",cat:"prevention",tags:["prevention","infection"],
+    key:"Topical ocular medication for all newborns — prevents gonococcal (NOT chlamydial) ophthalmia",
+    rec:"The USPSTF recommends prophylactic ocular topical medication for all newborns to prevent gonococcal ophthalmia neonatorum.",
+    pearl:"Grade A, universal. Erythromycin ophthalmic ointment is standard. Prevents gonococcal — NOT chlamydial — ophthalmia neonatorum. Classic exam distinction.",date:"Jan 2019"},
+  {id:34,grade:"B",topic:"Osteoporosis — Women 65+",pop:"Women 65 years or older",cat:"prevention",tags:["prevention"],
+    key:"Universal DXA screening for osteoporosis in women 65 and older",
+    rec:"The USPSTF recommends screening for osteoporosis to prevent osteoporotic fractures in women 65 years or older.",
+    pearl:"Two separate osteoporosis recs: women 65+ (universal DXA) and postmenopausal women under 65 with risk factors. Men NOT recommended for routine USPSTF screening.",date:"Jan 2025"},
+  {id:35,grade:"B",topic:"Osteoporosis — Postmenopausal Women Under 65",pop:"Postmenopausal women younger than 65 with 1 or more risk factors for osteoporosis",cat:"prevention",tags:["prevention"],
+    key:"DXA for postmenopausal women under 65 only if increased fracture risk (use FRAX tool)",
+    rec:"The USPSTF recommends screening for osteoporosis to prevent osteoporotic fractures in postmenopausal women younger than 65 years who are at increased risk for an osteoporotic fracture as estimated by clinical risk assessment.",
+    pearl:"Must be BOTH postmenopausal AND have increased fracture risk (FRAX). Key risk factors: low body weight, smoking, prior fracture, family history, prolonged steroid use.",date:"Jan 2025"},
+  {id:36,grade:"B",topic:"Perinatal Depression — Prevention",pop:"Pregnant and postpartum persons at increased risk for perinatal depression",cat:"mental",tags:["mental","pregnancy"],
+    key:"Counseling interventions for those at increased risk of perinatal depression (separate from screening rec)",
+    rec:"The USPSTF recommends that clinicians provide or refer pregnant and postpartum persons who are at increased risk of perinatal depression to counseling interventions.",
+    pearl:"This is a PREVENTIVE intervention rec — distinct from the depression screening rec. Must be at increased risk. Counseling, not pharmacotherapy.",date:"Feb 2019"},
+  {id:37,grade:"B",topic:"Prediabetes and Type 2 Diabetes",pop:"Asymptomatic adults aged 35-70 with overweight or obesity",cat:"metabolic",tags:["metabolic"],
+    key:"Screen for prediabetes/T2DM only if age 35-70 AND overweight or obese",
+    rec:"The USPSTF recommends screening for prediabetes and type 2 diabetes in adults aged 35 to 70 years who have overweight or obesity. Clinicians should offer or refer patients with prediabetes to effective preventive interventions.",
+    pearl:"TWO conditions: age 35-70 AND overweight/obesity (BMI 25+; 23+ for Asian Americans). If prediabetes found → refer to intensive behavioral intervention.",date:"Aug 2021"},
+  {id:38,grade:"A",topic:"PrEP — HIV Prevention",pop:"Adolescents and adults at increased risk of HIV acquisition",cat:"infection",tags:["infection","prevention"],
+    key:"Grade A — prescribe effective ART-based PrEP in all persons at increased HIV risk",
+    rec:"The USPSTF recommends that clinicians prescribe preexposure prophylaxis using effective antiretroviral therapy to persons who are at increased risk of HIV acquisition to decrease the risk of acquiring HIV.",
+    pearl:"Grade A. TDF/FTC or TAF/FTC first-line. Increased risk: serodiscordant couples, recent STI, inconsistent condom use, IVDU. Requires q3-month HIV testing while on PrEP.",date:"Aug 2023"},
+  {id:39,grade:"B",topic:"Dental Caries — Fluoride Varnish",pop:"Infants and children from primary tooth eruption through age under 5",cat:"prevention",tags:["prevention"],
+    key:"Apply fluoride varnish starting at first primary tooth eruption — all children",
+    rec:"The USPSTF recommends that primary care clinicians apply fluoride varnish to the primary teeth of all infants and children starting at the age of primary tooth eruption.",
+    pearl:"Two complementary dental caries recs: (1) fluoride varnish from first tooth eruption, (2) oral fluoride supplements from 6 months if water is fluoride-deficient. Both Grade B.",date:"Dec 2021"},
+  {id:40,grade:"B",topic:"Dental Caries — Oral Fluoride Supplements",pop:"Children from age 6 months with fluoride-deficient water supply",cat:"prevention",tags:["prevention"],
+    key:"Oral fluoride supplements starting at 6 months only if water supply is fluoride-deficient",
+    rec:"The USPSTF recommends that primary care clinicians prescribe oral fluoride supplementation starting at age 6 months for children whose water supply is deficient in fluoride.",
+    pearl:"Condition applies: only if water supply is fluoride-deficient. Start at 6 months. Works synergistically with in-office fluoride varnish.",date:"Dec 2021"},
+  {id:41,grade:"A",topic:"Rh(D) Incompatibility — Initial Screen",pop:"All pregnant women at first pregnancy-related care visit",cat:"pregnancy",tags:["pregnancy"],
+    key:"Rh(D) blood typing + antibody testing at first prenatal visit — Grade A, universal",
+    rec:"The USPSTF strongly recommends Rh(D) blood typing and antibody testing for all pregnant women during their first visit for pregnancy-related care.",
+    pearl:"Grade A, universal. Two tests at first visit: blood type AND antibody screen. If Rh-negative and unsensitized → RhIg at 28 weeks and postpartum.",date:"Feb 2004"},
+  {id:42,grade:"B",topic:"Rh(D) Incompatibility — Repeat Screen",pop:"Unsensitized Rh(D)-negative pregnant women at 24-28 weeks gestation",cat:"pregnancy",tags:["pregnancy"],
+    key:"Repeat Rh(D) antibody at 24-28 weeks unless biological father confirmed Rh-negative",
+    rec:"The USPSTF recommends repeated Rh(D) antibody testing for all unsensitized Rh(D)-negative women at 24 to 28 weeks gestation, unless the biological father is known to be Rh(D)-negative.",
+    pearl:"Exception: if biological father confirmed Rh-negative, no repeat needed. Initial screen = Grade A; repeat at 24-28 weeks = Grade B.",date:"Feb 2004"},
+  {id:43,grade:"B",topic:"STI Behavioral Counseling",pop:"All sexually active adolescents; adults at increased risk",cat:"infection",tags:["infection","prevention"],
+    key:"All sexually active adolescents get counseling; adults only if at increased STI risk",
+    rec:"The USPSTF recommends behavioral counseling for all sexually active adolescents and for adults who are at increased risk for sexually transmitted infections (STIs).",
+    pearl:"Adolescents = universal counseling regardless of risk. Adults = only if increased risk. This is prevention counseling, separate from screening recommendations.",date:"Aug 2020"},
+  {id:44,grade:"B",topic:"Skin Cancer — Behavioral Counseling",pop:"Persons aged 6 months to 24 years with fair skin types",cat:"cancer",tags:["cancer","prevention"],
+    key:"UV exposure counseling for fair-skinned persons ages 6 months to 24 years only",
+    rec:"The USPSTF recommends counseling young adults, adolescents, children, and parents of young children about minimizing exposure to ultraviolet (UV) radiation for persons aged 6 months to 24 years with fair skin types.",
+    pearl:"Applies to FAIR SKIN TYPES ONLY — not all skin types. Age range 6 months to 24 years. Adults over 24: insufficient evidence. Counseling only.",date:"Mar 2018"},
+  {id:45,grade:"B",topic:"Statins — Primary CVD Prevention",pop:"Adults 40-75 with 1+ CVD risk factors and 10-year CVD event risk of 10% or greater",cat:"cvd",tags:["cvd","prevention"],
+    key:"3 conditions all required: age 40-75 + 1+ CVD RF (DLD/DM/HTN/smoking) + 10-yr risk 10% or more",
+    rec:"The USPSTF recommends that clinicians prescribe a statin for the primary prevention of CVD for adults aged 40-75 who have 1 or more CVD risk factors (dyslipidemia, diabetes, hypertension, or smoking) and an estimated 10-year risk of a cardiovascular event of 10% or greater.",
+    pearl:"ALL THREE conditions required: (1) age 40-75, (2) at least 1 of dyslipidemia/DM/HTN/smoking, AND (3) 10-year CVD risk 10% or more via PCE calculator. Primary prevention only.",date:"Aug 2022"},
+  {id:46,grade:"A",topic:"Syphilis — Pregnant Women",pop:"Asymptomatic pregnant women",cat:"infection",tags:["infection","pregnancy"],
+    key:"Grade A — early, universal syphilis screen in pregnancy; if not early, at first available opportunity",
+    rec:"The USPSTF recommends early, universal screening for syphilis infection during pregnancy; if an individual is not screened early in pregnancy, the USPSTF recommends screening at the first available opportunity.",
+    pearl:"Grade A, updated May 2025 (upgraded from B). Universal in pregnancy — not risk-based. Screen at L&D if not done earlier. RPR/VDRL confirmed by treponemal test.",date:"May 2025"},
+  {id:47,grade:"A",topic:"Syphilis — Non-Pregnant At-Risk",pop:"Asymptomatic non-pregnant adolescents and adults at increased risk",cat:"infection",tags:["infection"],
+    key:"Grade A but risk-based only — not universal in non-pregnant persons",
+    rec:"The USPSTF recommends screening for syphilis infection in persons who are at increased risk for infection.",
+    pearl:"Grade A but risk-based (unlike pregnancy where it is universal). Increased risk: MSM, HIV+, sex workers, prior syphilis, multiple partners. Don't confuse with universal pregnancy rec.",date:"Sep 2022"},
+  {id:48,grade:"A",topic:"Tobacco Cessation — Nonpregnant Adults",pop:"Nonpregnant adults who use tobacco",cat:"substance",tags:["substance","prevention"],
+    key:"Ask → advise → behavioral counseling PLUS pharmacotherapy (NRT, bupropion, or varenicline)",
+    rec:"The USPSTF recommends that clinicians ask all adults about tobacco use, advise them to stop using tobacco, and provide behavioral interventions and US FDA-approved pharmacotherapy for cessation to nonpregnant adults who use tobacco.",
+    pearl:"Nonpregnant adults get BOTH behavioral AND pharmacotherapy. Contrast with pregnant persons (behavioral ONLY). HIGH-YIELD distinction. Grade A.",date:"Jan 2021"},
+  {id:49,grade:"A",topic:"Tobacco Cessation — Pregnant Persons",pop:"Pregnant persons who use tobacco",cat:"substance",tags:["substance","pregnancy"],
+    key:"Ask → advise → behavioral interventions ONLY — no pharmacotherapy in pregnancy",
+    rec:"The USPSTF recommends that clinicians ask all pregnant persons about tobacco use, advise them to stop using tobacco, and provide behavioral interventions for cessation to pregnant persons who use tobacco.",
+    pearl:"Pregnant persons: behavioral interventions ONLY. No pharmacotherapy (insufficient safety data). Nonpregnant adults get behavioral + pharmacotherapy. HIGH-YIELD DISTINCTION.",date:"Jan 2021"},
+  {id:50,grade:"B",topic:"Tobacco Use — Adolescents (Primary Prevention)",pop:"School-aged children and adolescents who have not started to use tobacco",cat:"substance",tags:["substance","prevention"],
+    key:"Primary prevention counseling for youth not yet using tobacco",
+    rec:"The USPSTF recommends that primary care clinicians provide interventions, including education or brief counseling, to prevent initiation of tobacco use among school-aged children and adolescents.",
+    pearl:"Primary prevention for non-users — different from cessation. School-aged children only. Brief education or counseling is sufficient.",date:"Apr 2020"},
+  {id:51,grade:"B",topic:"Unhealthy Alcohol Use",pop:"Adults 18 years or older, including pregnant women",cat:"substance",tags:["substance"],
+    key:"Screen all adults 18+ including pregnant women → brief counseling if risky or hazardous drinking",
+    rec:"The USPSTF recommends screening for unhealthy alcohol use in primary care settings in adults 18 years or older, including pregnant women, and providing persons engaged in risky or hazardous drinking with brief behavioral counseling interventions.",
+    pearl:"Two steps: (1) screen all adults 18+ including pregnant, (2) brief counseling only if risky/hazardous drinking identified. AUDIT or AUDIT-C are standard tools.",date:"Nov 2018"},
+  {id:52,grade:"B",topic:"Unhealthy Drug Use",pop:"Adults 18 years or older",cat:"substance",tags:["substance"],
+    key:"Screening = asking questions — NOT biological specimen testing like urine drug screens",
+    rec:"The USPSTF recommends screening by asking questions about unhealthy drug use in adults age 18 years or older. Screening refers to asking questions about unhealthy drug use, not testing biological specimens.",
+    pearl:"Explicitly defines screening as questionnaire NOT urine drug screen. Requires that accurate diagnosis, effective treatment, and appropriate care can be offered. DAST-10 or single-question screen.",date:"Jun 2020"},
+  {id:53,grade:"B",topic:"Vision — Children (Amblyopia)",pop:"Children aged 3-5 years",cat:"prevention",tags:["prevention"],
+    key:"Screen all children 3-5 at least once for amblyopia or its risk factors",
+    rec:"The USPSTF recommends vision screening at least once in all children aged 3 to 5 years to detect amblyopia or its risk factors.",
+    pearl:"Ages 3-5, at least once. Amblyopia is the most common cause of monocular vision loss in children. Photoscreeners or autorefractors used in primary care.",date:"Sep 2017"},
+  {id:54,grade:"B",topic:"Weight Loss — Obesity in Adults",pop:"Adults with BMI of 30 or higher",cat:"metabolic",tags:["metabolic","prevention"],
+    key:"Offer or refer adults with BMI 30+ to intensive multicomponent behavioral interventions",
+    rec:"The USPSTF recommends that clinicians offer or refer adults with a body mass index (BMI) of 30 or higher to intensive, multicomponent behavioral interventions.",
+    pearl:"Threshold is BMI 30+ (obesity only, not just overweight). Must be intensive and multicomponent. Distinct from CVD counseling (risk-factor based) and T2DM screening (BMI 25+, ages 35-70).",date:"Sep 2018"}
+];
+
+let grade="all", cat="all";
+
+function setGrade(g,btn){
+  grade=g;
+  document.querySelectorAll(".chip").forEach(b=>b.classList.remove("on","ona","onb"));
+  if(g==="all")btn.classList.add("on");
+  else if(g==="A")btn.classList.add("ona");
+  else btn.classList.add("onb");
+  render();
+}
+function setTab(c,btn){
+  cat=c;
+  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("on"));
+  btn.classList.add("on");
+  const cv=document.getElementById("cv"),fv=document.getElementById("fv");
+  const av=document.getElementById("av");
+  if(c==="flow"){cv.style.display="none";fv.style.display="";av.style.display="none";renderFlows();}
+  else if(c==="age"){cv.style.display="none";fv.style.display="none";av.style.display="";renderAge();}
+  else{cv.style.display="";fv.style.display="none";av.style.display="none";render();}
+}
+function render(){
+  const q=document.getElementById("srch").value.toLowerCase().trim();
+  const fil=RECS.filter(r=>{
+    const gOk=grade==="all"||r.grade===grade;
+    const cOk=cat==="all"||cat==="flow"||r.cat===cat||r.tags.includes(cat);
+    const sOk=!q||[r.topic,r.pop,r.key,r.rec,r.pearl].join(" ").toLowerCase().includes(q);
+    return gOk&&cOk&&sOk;
+  });
+  document.getElementById("rc").textContent=fil.length;
+  const grid=document.getElementById("grid"),em=document.getElementById("em"),qts=document.getElementById("qts");
+  grid.innerHTML="";
+  if(!fil.length){em.style.display="";grid.style.display="none";}
+  else{em.style.display="none";grid.style.display="grid";fil.forEach(r=>grid.appendChild(mkCard(r)));}
+  qts.innerHTML=(cat==="all"&&grade==="all"&&!q)?qtHtml():"";
+}
+function mkCard(r){
+  const d=document.createElement("div");d.className="card";
+  const th=r.tags.map(t=>{const[bg,c]=THX[t]||["#e9efe3","#245239"];return`<span class="tag" style="background:${bg};color:${c}">${t}</span>`;}).join("");
+  const gcls=r.grade==="A"?"gA":"gB";
+  d.innerHTML=`<div class="ct"><div class="ch"><div class="gd ${gcls}">${r.grade}</div><div class="ctitle">${r.topic}</div></div><div class="cpop">${r.pop}</div><div class="ks"><div class="kl">Key fact</div><div class="kv">${r.key}</div></div></div><div class="tags">${th}</div><div class="eh" id="eh${r.id}">Tap to expand &nbsp;▼</div><div class="det" id="dt${r.id}"><div class="dl"><div class="dll">USPSTF Recommendation</div><div class="dlt">${r.rec}</div></div><div class="dl"><div class="dll">High-yield pearl</div><div class="pearl"><span class="plbl">&#9733; Pearl</span>${r.pearl}</div></div><span class="dtag">Updated ${r.date}</span></div>`;
+  d.addEventListener("click",()=>{const det=document.getElementById("dt"+r.id),eh=document.getElementById("eh"+r.id),o=det.classList.toggle("open");d.classList.toggle("open",o);eh.innerHTML=o?"Tap to collapse &nbsp;▲":"Tap to expand &nbsp;▼";});
+  return d;
+}
+function qtHtml(){
+  const rows=[
+    ["AAA screening","Men 65-75, ever-smoker → 1-time ultrasound","B"],
+    ["Mammography","Women 40-74 → biennial","B"],
+    ["Cervical Ca (21-29)","Pap alone every 3 years","A"],
+    ["Cervical Ca (30-65)","Pap q3y OR hrHPV q5y OR cotesting q5y","A"],
+    ["Colorectal (45-49)","Screen — any strategy (Grade B)","B"],
+    ["Colorectal (50-75)","Screen — any strategy (Grade A)","A"],
+    ["Lung cancer","Age 50-80 + 20+ pack-yrs + active or quit <15y → annual LDCT","B"],
+    ["Hypertension","All adults 18+; confirm out-of-office before treating","A"],
+    ["Statins (1° prevention)","Age 40-75 + 1+ CVD RF + 10-yr risk 10%+","B"],
+    ["Prediabetes/T2DM","Adults 35-70 with overweight/obesity","B"],
+    ["Folic acid","Anyone who could become pregnant → 0.4-0.8 mg/day","A"],
+    ["Aspirin (preeclampsia)","High-risk pregnancy → 81 mg/day after week 12","B"],
+    ["HIV (general)","Ages 15-65 universal; outside range if at-risk","A"],
+    ["HIV (pregnant)","Universal, including at L&D if unknown","A"],
+    ["HBV (pregnant)","Universal at first prenatal visit","A"],
+    ["HBV (adults)","Risk-based only — not universal","B"],
+    ["HCV","Adults 18-79 — nearly universal","B"],
+    ["Syphilis (pregnant)","Early universal; first available opportunity if late","A"],
+    ["Syphilis (non-pregnant)","Risk-based — MSM, HIV+, prior syphilis, etc.","A"],
+    ["PrEP (HIV prevention)","Adolescents & adults at increased HIV risk","A"],
+    ["Tobacco cessation (adults)","Ask → advise → behavioral + pharmacotherapy","A"],
+    ["Tobacco cessation (pregnant)","Ask → advise → behavioral ONLY, no pharmacotherapy","A"],
+    ["Anxiety (adults)","Screen adults 64 and younger incl. pregnant/postpartum","B"],
+    ["Anxiety (children)","Ages 8-18","B"],
+    ["Depression (adults)","All adults incl. 65+ (unlike anxiety which cuts at 64)","B"],
+    ["Depression (adolescents)","Ages 12-18 for MDD","B"],
+    ["Chlamydia/Gonorrhea","Sexually active women under 25 universal; 25+ if at-risk","B"],
+    ["Gestational diabetes","Asymptomatic pregnant at 24 weeks or later","B"],
+    ["Alcohol use","All adults 18+ incl. pregnant → brief counseling if risky","B"],
+    ["Drug use screening","Ask questions — NOT urine drug screens — adults 18+","B"],
+    ["IPV screening","Women of reproductive age incl. pregnant/postpartum","B"],
+    ["Rh(D) typing","All pregnant women at first prenatal visit","A"],
+    ["Osteoporosis","Women 65+ (universal DXA); postmenopausal <65 if risk factors","B"],
+  ];
+  return`<div class="qt-wrap"><div class="qth"><h3>One-liner quick reference</h3><span>Source: USPSTF A &amp; B Recommendations PDF</span></div><table class="qt"><thead><tr><th>Topic</th><th>The rule</th><th>Gr</th></tr></thead><tbody>${rows.map(([t,r,g])=>`<tr><td>${t}</td><td>${r}</td><td class="${g==="A"?"ga-td":"gb-td"}">${g}</td></tr>`).join("")}</tbody></table></div>`;
+}
+
+const FLOWS=[
+  {
+    title:"Colorectal Cancer Screening",
+    grade:"A / B",
+    ga:true,
+    cat:"cancer",
+    pearl:"Grade B (45–49), Grade A (50–75). Individualize 76–85. Stop ≥85. All stool-based tests require colonoscopy follow-up if positive. High-risk patients (Lynch, FAP, prior adenomas, IBD) need earlier/more frequent surveillance — USPSTF applies to average-risk only.",
+    steps:[
+      {type:"start",text:"Average-Risk CRC Screening"},
+      {type:"arrow-v"},
+      {type:"decision",text:"Age?"},
+      {type:"branch",cols:3,items:[
+        {label:"45–49",nodes:[
+          {type:"grade-b",text:"Grade B — Screen"},
+        ]},
+        {label:"50–75",nodes:[
+          {type:"grade-a",text:"Grade A — Screen"},
+        ]},
+        {label:"76–85 / 85+",nodes:[
+          {type:"info",text:"76–85: Individualize"},
+          {type:"stop",text:"≥85: Do not screen"},
+        ]},
+      ]},
+      {type:"arrow-v"},
+      {type:"decision",text:"Choose modality (all are options — pick one)"},
+      {type:"branch",cols:3,items:[
+        {label:"Stool-based options",nodes:[
+          {type:"optlist",items:["FIT — annually","FIT-DNA (Cologuard) — q1–3 years","gFOBT — annually (3 samples)"]},
+          {type:"stop",text:"If positive → colonoscopy\nDo NOT repeat stool test"},
+        ]},
+        {label:"Direct visualization options",nodes:[
+          {type:"optlist",items:["Colonoscopy — every 10 years","CT colonography — every 5 years","Flex sigmoidoscopy — every 5 years","Flex sig q10y + annual FIT"]},
+        ]},
+        {label:"Key distinctions",nodes:[
+          {type:"info",text:"Colonoscopy: gold standard\nSensitivity ~95%\nAlso therapeutic"},
+          {type:"info",text:"FIT: most cost-effective\nNo prep, no sedation\nMust do annually"},
+        ]},
+      ]},
+    ]
+  },
+  {
+    title:"Lung Cancer Screening — LDCT",
+    grade:"B",
+    ga:false,
+    cat:"cancer",
+    pearl:"All 3 criteria must be met: age 50–80, 20 pack-year hx, currently smoking or quit within 15 years.",
+    steps:[
+      {type:"start",text:"Lung Cancer Screening — LDCT"},
+      {type:"arrow-v"},
+      {type:"decision",text:"Meets ALL 3 criteria?"},
+      {type:"branch",cols:2,items:[
+        {label:"No — any criterion missing",nodes:[
+          {type:"stop",text:"Not eligible"},
+          {type:"optlist",items:["Age 50–80 not met","< 20 pack-year history","Quit smoking > 15 years ago"]},
+        ]},
+        {label:"Yes — all 3 met",nodes:[
+          {type:"grade-b",text:"Grade B"},
+          {type:"action",text:"Annual LDCT\n+ shared decision making"},
+        ]},
+      ]},
+      {type:"arrow-v"},
+      {type:"info",text:"3 Criteria:\n① Age 50–80\n② ≥20 pack-year history\n③ Current smoker OR quit ≤15y"},
+    ]
+  },
+  {
+    title:"Cervical Cancer Screening",
+    grade:"A",
+    ga:true,
+    cat:"cancer",
+    pearl:"USPSTF Grade A. Start at 21 regardless of sexual debut. Key rules: (1) No HPV testing before 30 — HPV is too common and self-limiting in young women. (2) hrHPV alone (primary HPV) is acceptable at 30–65 q5y. (3) Adequate prior screening = 3 consecutive negative Paps OR 2 negative co-tests in last 10 years, most recent within 5 years. (4) Total hysterectomy for benign disease → stop screening. (5) Hysterectomy for CIN 2/3 → continue 20 more years. ASC-US: reflex HPV or repeat Pap 1y. LSIL/HPV+: colposcopy. hrHPV+/Pap− on co-test: repeat co-test 1y or genotype 16/18.",
+    steps:[
+      {type:"start",text:"Cervical Cancer Screening"},
+      {type:"arrow-v"},
+      {type:"decision",text:"Age?"},
+      {type:"branch",cols:3,items:[
+        {label:"< 21",nodes:[
+          {type:"stop",text:"No screening\nEven if sexually active"},
+        ]},
+        {label:"21–29",nodes:[
+          {type:"grade-a",text:"Grade A"},
+          {type:"action",text:"Pap smear only — q3 years"},
+          {type:"stop",text:"No HPV testing under 30"},
+        ]},
+        {label:"30–65",nodes:[
+          {type:"grade-a",text:"Grade A"},
+          {type:"optlist",items:["Pap alone — q3 years","hrHPV alone — q5 years","Co-test (Pap + HPV) — q5 years"]},
+        ]},
+      ]},
+      {type:"arrow-v"},
+      {type:"decision",text:"Age > 65?"},
+      {type:"branch",cols:2,items:[
+        {label:"Adequate prior screening",nodes:[
+          {type:"stop",text:"Discontinue screening"},
+        ]},
+        {label:"Inadequate screening history",nodes:[
+          {type:"action",text:"Continue until\nadequate history obtained"},
+        ]},
+      ]},
+    ]
+  },
+  {
+    title:"Tobacco Cessation",
+    grade:"A",
+    ga:true,
+    cat:"substance",
+    pearl:"Pregnant → behavioral counseling ONLY (Grade A). Non-pregnant → behavioral + pharmacotherapy (Grade A).",
+    steps:[
+      {type:"start",text:"Tobacco User Identified"},
+      {type:"arrow-v"},
+      {type:"decision",text:"Currently pregnant?"},
+      {type:"branch",cols:2,items:[
+        {label:"Yes",nodes:[
+          {type:"grade-a",text:"Grade A"},
+          {type:"action",text:"Behavioral counseling\nONLY"},
+          {type:"stop",text:"No pharmacotherapy\n(insufficient evidence\nfor safety in pregnancy)"},
+        ]},
+        {label:"No",nodes:[
+          {type:"grade-a",text:"Grade A"},
+          {type:"action",text:"Behavioral counseling\n+\nPharmacotherapy"},
+          {type:"action",text:"NRT, varenicline,\nor bupropion\n(per patient preference)"},
+        ]},
+      ]}
+    ]
+  },
+  {
+    title:"Statin — Primary CVD Prevention",
+    grade:"B",
+    ga:false,
+    cat:"cvd",
+    pearl:"All 3 criteria must be met: age 40-75, ≥1 CVD risk factor, 10-year CVD risk ≥10%. Shared decision-making always.",
+    steps:[
+      {type:"start",text:"Statin — Primary CVD Prevention"},
+      {type:"arrow-v"},
+      {type:"decision",text:"Meets ALL 3 criteria?"},
+      {type:"branch",cols:2,items:[
+        {label:"No — any criterion missing",nodes:[
+          {type:"stop",text:"Not indicated"},
+          {type:"optlist",items:["Age 40–75 not met","No qualifying CVD risk factors","10-yr PCE risk < 10%"]},
+        ]},
+        {label:"Yes — all 3 met",nodes:[
+          {type:"grade-b",text:"Grade B"},
+          {type:"action",text:"Initiate statin\n+ shared decision making"},
+        ]},
+      ]},
+      {type:"arrow-v"},
+      {type:"info",text:"3 Criteria:\n① Age 40–75\n② ≥1 CVD risk factor (HTN, dyslipidemia, DM, smoking)\n③ 10-yr CVD risk (PCE) ≥10%"},
+    ]
+  },
+  {
+    title:"HIV Screening",
+    grade:"A",
+    ga:true,
+    cat:"infection",
+    pearl:"Universal ages 15-65. Outside that range: screen if at increased risk. Pregnant persons: Grade A at first prenatal visit (and L&D if unknown).",
+    steps:[
+      {type:"start",text:"HIV Screening Decision"},
+      {type:"arrow-v"},
+      {type:"decision",text:"Age?"},
+      {type:"branch",cols:3,items:[
+        {label:"< 15 or > 65",nodes:[
+          {type:"decision",text:"Increased risk?"},
+          {type:"branch",cols:2,items:[
+            {label:"No",nodes:[{type:"stop",text:"No screen needed"}]},
+            {label:"Yes",nodes:[{type:"grade-a",text:"Grade A\nScreen"}]},
+          ]},
+        ]},
+        {label:"15–65",nodes:[
+          {type:"grade-a",text:"Grade A"},
+          {type:"action",text:"Screen all\n(universal)"},
+        ]},
+        {label:"Pregnant\n(any age)",nodes:[
+          {type:"grade-a",text:"Grade A"},
+          {type:"action",text:"Screen at first\nprenatal visit"},
+          {type:"action",text:"If status unknown\nat delivery → test"},
+        ]},
+      ]}
+    ]
+  },
+  {
+    title:"Syphilis Screening",
+    grade:"A",
+    ga:true,
+    cat:"infection",
+    pearl:"Pregnant: Grade A universal. Non-pregnant: Grade A if at increased risk (MSM, multiple partners, prior STI, drug use, exchange sex).",
+    steps:[
+      {type:"start",text:"Syphilis Screening"},
+      {type:"arrow-v"},
+      {type:"decision",text:"Currently pregnant?"},
+      {type:"branch",cols:2,items:[
+        {label:"Yes",nodes:[
+          {type:"grade-a",text:"Grade A"},
+          {type:"action",text:"Universal screen\nearly in pregnancy"},
+          {type:"action",text:"Repeat in 3rd trimester\nif at high risk"},
+        ]},
+        {label:"No →",nodes:[
+          {type:"decision",text:"Increased risk?\n(MSM, mult. partners,\nprior STI, drug use)"},
+          {type:"branch",cols:2,items:[
+            {label:"No",nodes:[{type:"stop",text:"No screen needed"}]},
+            {label:"Yes",nodes:[
+              {type:"grade-a",text:"Grade A"},
+              {type:"action",text:"Screen + treat\nif positive"},
+            ]},
+          ]},
+        ]},
+      ]}
+    ]
+  },
+  {
+    title:"Depression vs. Anxiety — Age Targets",
+    grade:"B",
+    ga:false,
+    cat:"mental",
+    pearl:"Depression = all adults 18+ including pregnant/postpartum. Anxiety = adults 18-64 (includes pregnant/postpartum). Children: Depression 12-18; Anxiety 8-18.",
+    steps:[
+      {type:"start",text:"Which Screening?"},
+      {type:"arrow-v"},
+      {type:"branch",cols:2,items:[
+        {label:"DEPRESSION (MDD)",nodes:[
+          {type:"decision",text:"Age ≥ 12?"},
+          {type:"branch",cols:2,items:[
+            {label:"12–17",nodes:[{type:"grade-b",text:"Grade B\nPHQ-A"}]},
+            {label:"18+",nodes:[{type:"grade-b",text:"Grade B\nPHQ-9 or\nequivalent"}]},
+          ]},
+          {type:"action",text:"Includes pregnant\n& postpartum"},
+        ]},
+        {label:"ANXIETY",nodes:[
+          {type:"decision",text:"Age?"},
+          {type:"branch",cols:3,items:[
+            {label:"< 8",nodes:[{type:"stop",text:"Insufficient\nevidence"}]},
+            {label:"8–64",nodes:[{type:"grade-b",text:"Grade B\nScreen"}]},
+            {label:"65+",nodes:[{type:"stop",text:"Insufficient\nevidence"}]},
+          ]},
+          {type:"action",text:"Includes pregnant\n& postpartum"},
+        ]},
+      ]}
+    ]
+  },
+];
+
+// ── AGE BANDS DATA ──
+// Each band: { label, sub, note (optional), items: [{id, note}] }
+// Items map to RECS by id; optional per-band note overrides or adds context
+const AGE_BANDS = [
+  {
+    label:"Birth – 5 years",
+    sub:"Infants & Toddlers",
+    icon:"🍼",
+    context:"Newborn / Well-Child Visits",
+    sections:[
+      {cat:"Prevention & Prophylaxis",items:[
+        {id:33,note:"Ocular prophylaxis (erythromycin ointment) — all newborns at delivery"},
+        {id:39,note:"Fluoride varnish — from first primary tooth eruption, at well-child visits"},
+        {id:40,note:"Oral fluoride supplement — from 6 months if local water is fluoride-deficient"},
+      ]},
+      {cat:"Vision",items:[
+        {id:53,note:"Vision screening for amblyopia — at least once between ages 3–5"},
+      ]},
+    ]
+  },
+  {
+    label:"6 – 11 years",
+    sub:"School-Age Children",
+    icon:"🏫",
+    context:"Annual Well-Child / Preventive Visit",
+    sections:[
+      {cat:"Weight & Nutrition",items:[
+        {id:25,note:"Obesity screening — if BMI ≥ 95th percentile → refer to intensive behavioral intervention (6+ months)"},
+      ]},
+      {cat:"Prevention & Dental",items:[
+        {id:39,note:"Fluoride varnish — continue at primary care visits through school age"},
+        {id:40,note:"Oral fluoride supplement — continue if water supply is deficient"},
+      ]},
+      {cat:"Cancer Prevention",items:[
+        {id:44,note:"UV counseling — fair-skin types only (ages 6 months to 24 years)"},
+      ]},
+      {cat:"Substance Use",items:[
+        {id:50,note:"Tobacco primary prevention — counseling to prevent initiation"},
+      ]},
+    ]
+  },
+  {
+    label:"12 – 17 years",
+    sub:"Adolescents",
+    icon:"🧑‍🎓",
+    context:"Annual Adolescent Well Visit",
+    sections:[
+      {cat:"Mental Health",items:[
+        {id:3,note:"Anxiety screening — ages 8–18 (e.g., SCARED, GAD-7 adapted)"},
+        {id:16,note:"Depression screening — ages 12–18 (PHQ-A or equivalent)"},
+      ]},
+      {cat:"Weight",items:[
+        {id:25,note:"Obesity — if BMI ≥ 95th percentile → intensive behavioral intervention"},
+      ]},
+      {cat:"Cancer Prevention",items:[
+        {id:44,note:"UV counseling — fair-skin types, continues through age 24"},
+      ]},
+      {cat:"Substance Use",items:[
+        {id:50,note:"Tobacco primary prevention — counseling at every visit"},
+      ]},
+      {cat:"Sexual Health",items:[
+        {id:43,note:"STI behavioral counseling — all sexually active adolescents"},
+      ]},
+    ]
+  },
+  {
+    label:"18 – 24 years",
+    sub:"Young Adults",
+    icon:"🎓",
+    context:"Annual Preventive Visit — includes first Pap smear at 21",
+    sections:[
+      {cat:"Mental Health",items:[
+        {id:2,note:"Anxiety screening — adults 18–64 (GAD-7 or equivalent)"},
+        {id:15,note:"Depression screening — all adults 18+ (PHQ-9)"},
+      ]},
+      {cat:"Sexual & Reproductive Health",items:[
+        {id:11,note:"Chlamydia screening — universal in all sexually active women ≤24 (annual NAAT)"},
+        {id:12,note:"Gonorrhea screening — universal in all sexually active women ≤24 (NAAT, can pair with chlamydia)"},
+        {id:43,note:"STI behavioral counseling — if sexually active and at increased risk"},
+        {id:10,note:"Cervical cancer / Pap smear — start at age 21 regardless of sexual debut (Pap q3 years, ages 21–29)"},
+      ]},
+      {cat:"Infectious Disease",items:[
+        {id:26,note:"HIV screening — universal ages 15–65 (one-time or annual if high-risk)"},
+        {id:38,note:"PrEP — offer to anyone at increased risk for HIV"},
+      ]},
+      {cat:"Cardiovascular",items:[
+        {id:28,note:"Hypertension — screen all adults 18+; confirm with out-of-office measurement before treating"},
+      ]},
+      {cat:"Substance Use",items:[
+        {id:51,note:"Unhealthy alcohol use — screen all adults 18+ (AUDIT-C or single question)"},
+        {id:52,note:"Drug use — ask questions (not urine screening) for unhealthy drug use"},
+        {id:48,note:"Tobacco cessation — behavioral counseling + pharmacotherapy for active users"},
+      ]},
+      {cat:"Cancer Prevention",items:[
+        {id:44,note:"UV counseling — fair-skin types, continue through age 24"},
+      ]},
+    ]
+  },
+  {
+    label:"25 – 39 years",
+    sub:"Adults — Early",
+    icon:"👩‍💼",
+    context:"Annual Preventive Visit — key period for cancer screening starts, pregnancy planning",
+    sections:[
+      {cat:"Mental Health",items:[
+        {id:2,note:"Anxiety screening — adults 18–64"},
+        {id:15,note:"Depression screening — all adults, including pregnant and postpartum"},
+      ]},
+      {cat:"Cancer Screening",items:[
+        {id:10,note:"Cervical cancer — Pap q3y (ages 21–29) OR Pap/hrHPV co-test q5y or hrHPV alone q5y (ages 30–65)"},
+        {id:6,note:"BRCA risk assessment — if personal or family history of breast/ovarian cancer or at-risk ancestry (Ashkenazi Jewish)"},
+      ]},
+      {cat:"Sexual & Reproductive Health",items:[
+        {id:11,note:"Chlamydia — universal ≤24; risk-based at 25+ (new/multiple partners, prior STI, exchanging sex)"},
+        {id:12,note:"Gonorrhea — same criteria as chlamydia"},
+        {id:46,note:"Syphilis — universal if pregnant; risk-based if not pregnant"},
+        {id:43,note:"STI behavioral counseling — if at increased risk"},
+      ]},
+      {cat:"Infectious Disease",items:[
+        {id:26,note:"HIV — universal screen ages 15–65"},
+        {id:22,note:"Hepatitis B — risk-based in non-pregnant adults (high-risk behaviors, travel, born in endemic area)"},
+        {id:24,note:"Hepatitis C — near-universal adults 18–79"},
+        {id:38,note:"PrEP — offer if at increased HIV risk"},
+      ]},
+      {cat:"Cardiovascular",items:[
+        {id:28,note:"Hypertension — screen all adults 18+; confirm out-of-office before treating"},
+      ]},
+      {cat:"Pregnancy & Prenatal",items:[
+        {id:18,note:"Folic acid — 400–800 mcg/day for anyone who could become pregnant (start ≥1 month before conception)"},
+        {id:4,note:"Aspirin 81 mg/day — after week 12 if at high risk for preeclampsia (history, chronic HTN, DM, CKD, multifetal)"},
+        {id:5,note:"Asymptomatic bacteriuria — urine culture at 12–16 weeks (pregnant persons only)"},
+        {id:19,note:"Gestational diabetes — screen at 24+ weeks gestation"},
+        {id:29,note:"Hypertensive disorders — blood pressure monitoring throughout pregnancy"},
+        {id:41,note:"Rh(D) typing + antibody test — at first prenatal visit"},
+        {id:42,note:"Rh(D) antibody — repeat at 24–28 weeks if unsensitized and Rh-negative"},
+        {id:27,note:"HIV — universal screen including at labor & delivery if status unknown"},
+        {id:23,note:"Hepatitis B — universal at first prenatal visit (Grade A)"},
+        {id:36,note:"Perinatal depression counseling — if at elevated risk (prior MDD, stressors, lack of support)"},
+        {id:9,note:"Breastfeeding counseling — during pregnancy AND postpartum; refer to lactation support"},
+        {id:21,note:"Healthy gestational weight gain — counseling based on pre-pregnancy BMI"},
+        {id:30,note:"Intimate partner violence — screen all women of reproductive age"},
+        {id:49,note:"Tobacco cessation (pregnant) — behavioral counseling ONLY (no pharmacotherapy in pregnancy)"},
+      ]},
+      {cat:"Substance Use",items:[
+        {id:51,note:"Alcohol use — screen all adults including pregnant (AUDIT-C)"},
+        {id:48,note:"Tobacco cessation (non-pregnant) — behavioral counseling + pharmacotherapy"},
+      ]},
+    ]
+  },
+  {
+    label:"40 – 49 years",
+    sub:"Adults — Midlife",
+    icon:"🩺",
+    context:"Annual Preventive Visit — mammography begins, colorectal cancer screening",
+    sections:[
+      {cat:"Mental Health",items:[
+        {id:2,note:"Anxiety screening — adults up to age 64"},
+        {id:15,note:"Depression screening — all adults"},
+      ]},
+      {cat:"Cancer Screening",items:[
+        {id:8,note:"Breast cancer / Mammography — biennial screening starting at age 40 (Grade B; earlier for high-risk)"},
+        {id:10,note:"Cervical cancer — Pap q3y OR hrHPV q5y OR co-test q5y (ages 30–65)"},
+        {id:13,note:"Colorectal cancer — Grade B ages 45–49 (stool-based or colonoscopy)"},
+        {id:6,note:"BRCA risk assessment — if at-risk family/personal history"},
+        {id:7,note:"BRCA genetic counseling/testing — if risk assessment positive, refer for counseling and offer testing"},
+      ]},
+      {cat:"Cardiovascular",items:[
+        {id:28,note:"Hypertension — screen all adults; confirm out-of-office"},
+        {id:45,note:"Statins — if age 40–75 + ≥1 CVD risk factor + 10-year risk ≥10% (PCE calculator)"},
+        {id:20,note:"CVD behavioral counseling — if risk factors present (diet, physical activity)"},
+      ]},
+      {cat:"Metabolic / Diabetes",items:[
+        {id:35,note:"Prediabetes/type 2 DM — screen adults 35–70 who are overweight or obese"},
+      ]},
+      {cat:"Infectious Disease",items:[
+        {id:26,note:"HIV — universal through age 65"},
+        {id:24,note:"Hepatitis C — nearly universal adults 18–79"},
+        {id:22,note:"Hepatitis B — risk-based in adults"},
+      ]},
+      {cat:"Sexual & Reproductive Health",items:[
+        {id:30,note:"Intimate partner violence — screen all women of reproductive age"},
+      ]},
+      {cat:"Substance Use",items:[
+        {id:51,note:"Alcohol use — screen all adults"},
+        {id:48,note:"Tobacco cessation — behavioral counseling + pharmacotherapy if using"},
+      ]},
+    ]
+  },
+  {
+    label:"50 – 64 years",
+    sub:"Adults — Late Midlife",
+    icon:"👨‍⚕️",
+    context:"Annual Preventive Visit — peak cancer screening burden; statin eligibility often met",
+    sections:[
+      {cat:"Mental Health",items:[
+        {id:2,note:"Anxiety — adults up to age 64 (USPSTF stops at 64 for anxiety, unlike depression)"},
+        {id:15,note:"Depression — all adults, no upper age limit"},
+      ]},
+      {cat:"Cancer Screening",items:[
+        {id:8,note:"Breast cancer — biennial mammography through age 74"},
+        {id:10,note:"Cervical cancer — Pap q3y OR hrHPV q5y OR co-test q5y (through age 65)"},
+        {id:14,note:"Colorectal cancer — Grade A for ages 50–75 (colonoscopy q10y or FIT annually)"},
+        {id:32,note:"Lung cancer — annual LDCT if: age 50–80 + ≥20 pack-year hx + currently smoking or quit ≤15 years ago"},
+        {id:6,note:"BRCA risk — screen if personal/family history warrants"},
+      ]},
+      {cat:"Cardiovascular",items:[
+        {id:28,note:"Hypertension — screen all adults"},
+        {id:45,note:"Statins — age 40–75 + ≥1 CVD RF + PCE ≥10% → offer low/moderate-dose statin"},
+        {id:20,note:"CVD behavioral counseling — diet and activity if risk factors present"},
+      ]},
+      {cat:"Metabolic / Diabetes",items:[
+        {id:35,note:"Prediabetes/T2DM — screen adults 35–70 who are overweight/obese (FPG, HbA1c, or OGTT)"},
+      ]},
+      {cat:"Infectious Disease",items:[
+        {id:26,note:"HIV — universal through age 65"},
+        {id:24,note:"Hepatitis C — nearly universal through age 79"},
+      ]},
+      {cat:"Musculoskeletal",items:[
+        {id:37,note:"Vitamin D deficiency — screen adults ≥65 at risk of falls (note: age boundary is 65, watch if near 64/65)"},
+      ]},
+      {cat:"Substance Use",items:[
+        {id:51,note:"Alcohol — screen all adults"},
+        {id:48,note:"Tobacco cessation — behavioral + pharmacotherapy"},
+      ]},
+    ]
+  },
+  {
+    label:"65 – 75 years",
+    sub:"Older Adults",
+    icon:"🧓",
+    context:"Annual Preventive / Medicare Wellness Visit — osteoporosis, falls, AAA in men",
+    sections:[
+      {cat:"Mental Health",items:[
+        {id:15,note:"Depression — explicitly includes older adults 65+ (anxiety screen stops at 64 per USPSTF)"},
+      ]},
+      {cat:"Cancer Screening",items:[
+        {id:8,note:"Breast cancer — biennial mammography through age 74"},
+        {id:14,note:"Colorectal cancer — Grade A through age 75 (continue prior modality or switch to colonoscopy)"},
+        {id:32,note:"Lung cancer — annual LDCT through age 80 if smoking criteria met"},
+        {id:1,note:"Abdominal aortic aneurysm (AAA) — one-time ultrasound screening for men 65–75 who have EVER smoked"},
+      ]},
+      {cat:"Bone Health",items:[
+        {id:34,note:"Osteoporosis / DXA — all women ≥65 (universal); also for postmenopausal women <65 if risk ≥ 65-year-old white woman"},
+        {id:37,note:"Vitamin D deficiency — screen adults ≥65 at increased risk for falls"},
+      ]},
+      {cat:"Falls Prevention",items:[
+        {id:17,note:"Falls prevention — exercise interventions (balance + strength) for community-dwelling adults at increased fall risk"},
+      ]},
+      {cat:"Cardiovascular",items:[
+        {id:28,note:"Hypertension — screen all adults 18+"},
+        {id:45,note:"Statins — offer for ages 40–75 with risk factors + PCE ≥10%"},
+        {id:20,note:"CVD behavioral counseling — if risk factors"},
+      ]},
+      {cat:"Infectious Disease",items:[
+        {id:24,note:"Hepatitis C — nearly universal through age 79"},
+      ]},
+      {cat:"Substance Use",items:[
+        {id:51,note:"Alcohol — screen all adults"},
+        {id:48,note:"Tobacco cessation"},
+      ]},
+    ]
+  },
+  {
+    label:"76 – 80 years",
+    sub:"Older Adults (Continued)",
+    icon:"👴",
+    context:"Annual / Medicare Wellness Visit — most cancer screening ends; focus on function and falls",
+    sections:[
+      {cat:"Mental Health",items:[
+        {id:15,note:"Depression — all adults, no upper age limit"},
+      ]},
+      {cat:"Cancer Screening",items:[
+        {id:32,note:"Lung cancer — LDCT through age 80 if ≥20 pack-years + smoked or quit ≤15 years ago"},
+        {id:14,note:"Colorectal cancer — individualize for ages 76–85; generally stop routine screening ≥86"},
+      ]},
+      {cat:"Falls Prevention",items:[
+        {id:17,note:"Falls prevention — exercise interventions if at increased fall risk"},
+      ]},
+      {cat:"Infectious Disease",items:[
+        {id:24,note:"Hepatitis C — through age 79"},
+      ]},
+      {cat:"Cardiovascular",items:[
+        {id:28,note:"Hypertension — screen all adults"},
+      ]},
+      {cat:"Substance Use",items:[
+        {id:51,note:"Alcohol — screen all adults"},
+        {id:48,note:"Tobacco cessation"},
+      ]},
+    ]
+  },
+  {
+    label:"Pregnancy (Any Age)",
+    sub:"Applies throughout pregnancy & perinatal period",
+    icon:"🤰",
+    context:"First prenatal visit + ongoing — comprehensive required screening and interventions",
+    preg:true,
+    sections:[
+      {cat:"First Prenatal Visit",items:[
+        {id:27,note:"HIV — universal at first prenatal visit; repeat at L&D if status unknown"},
+        {id:23,note:"Hepatitis B — universal (Grade A) — screen and vaccinate non-immune"},
+        {id:46,note:"Syphilis — universal, early in pregnancy or at first opportunity"},
+        {id:41,note:"Rh(D) blood typing + antibody test — every pregnant person at first visit"},
+        {id:15,note:"Depression screening — includes pregnant and postpartum persons"},
+        {id:2,note:"Anxiety screening — includes pregnant and postpartum persons"},
+      ]},
+      {cat:"Throughout Pregnancy",items:[
+        {id:29,note:"Blood pressure monitoring — throughout pregnancy (hypertensive disorders of pregnancy)"},
+        {id:19,note:"Gestational diabetes — screen at 24+ weeks gestation (1-hr GCT or OGTT)"},
+        {id:30,note:"Intimate partner violence (IPV) — screen all women of reproductive age"},
+        {id:51,note:"Alcohol use — screen at first prenatal visit and ongoing (AUDIT-C)"},
+        {id:9,note:"Breastfeeding counseling — during pregnancy and continue postpartum"},
+        {id:21,note:"Healthy gestational weight gain — counsel based on pre-pregnancy BMI"},
+      ]},
+      {cat:"If Risk Factors Present",items:[
+        {id:4,note:"Aspirin 81 mg/day — start after week 12 if high risk for preeclampsia (prior preeclampsia, multifetal, chronic HTN, DM, CKD, autoimmune)"},
+        {id:42,note:"Repeat Rh(D) antibody — at 24–28 weeks if unsensitized and Rh-negative"},
+        {id:36,note:"Perinatal depression counseling — if at elevated risk (prior MDD, stressors, low support)"},
+      ]},
+      {cat:"Periconception / Family Planning",items:[
+        {id:18,note:"Folic acid 400–800 mcg/day — for anyone who could become pregnant, starting ≥1 month before conception"},
+      ]},
+      {cat:"Tobacco & Substance Use",items:[
+        {id:49,note:"Tobacco cessation — behavioral counseling ONLY during pregnancy (no pharmacotherapy — insufficient safety data)"},
+        {id:5,note:"Asymptomatic bacteriuria — urine culture at 12–16 weeks (pregnant only — Grade B)"},
+      ]},
+    ]
+  },
+];
+
+function renderAge(){
+  const ag=document.getElementById("ag");
+  ag.innerHTML=`<div class="age-intro">
+    <p><strong>Browse by patient age and sex.</strong> Recs are grouped by clinical category within each age band — click a band to expand. Recs that span multiple age ranges appear in each relevant band. Pregnancy recs are listed separately regardless of maternal age.</p>
+  </div>`;
+
+  // category color map
+  const CAT_COLORS={
+    "Mental Health":["#e8edf8","#2d4a8a"],
+    "Cancer Screening":["#fce8e8","#8a2424"],
+    "Cancer Prevention":["#fce8e8","#8a2424"],
+    "Sexual & Reproductive Health":["#f0e8f5","#6b2a8a"],
+    "Infectious Disease":["#e8f5ec","#1b5e35"],
+    "Cardiovascular":["#fdeee8","#8a3820"],
+    "Metabolic / Diabetes":["#fff5e0","#7a5200"],
+    "Substance Use":["#f5ede8","#7a3a20"],
+    "Prevention & Prophylaxis":["#e8f0f5","#1a4060"],
+    "Prevention & Dental":["#e8f0f5","#1a4060"],
+    "Weight & Nutrition":["#fdf5e0","#6a5000"],
+    "Weight":["#fdf5e0","#6a5000"],
+    "Vision":["#e8edf8","#2d4a8a"],
+    "Bone Health":["#fdf0e0","#7a4a00"],
+    "Falls Prevention":["#fdf0e0","#7a4a00"],
+    "Musculoskeletal":["#fdf0e0","#7a4a00"],
+    "First Prenatal Visit":["#f5e8f0","#7a1060"],
+    "Throughout Pregnancy":["#f5e8f0","#7a1060"],
+    "If Risk Factors Present":["#fce8e8","#8a2424"],
+    "Periconception / Family Planning":["#e8f5ec","#1b5e35"],
+    "Tobacco & Substance Use":["#f5ede8","#7a3a20"],
+    "Pregnancy & Prenatal":["#f5e8f0","#7a1060"],
+  };
+  const DEFAULT_COLORS=["#f1f4ec","#245239"];
+
+  AGE_BANDS.forEach((band,i)=>{
+    const isFirst=(i===0);
+    const isPreg=band.preg;
+    const div=document.createElement("div");div.className="age-band";
+    const hdrStyle=isPreg?"background:linear-gradient(135deg,#5a0a40,#8a1060)":"";
+    const contextLine=band.context?`<div class="ab-context">${band.context}</div>`:"";
+
+    // total rec count
+    let totalRecs=0;band.sections.forEach(s=>totalRecs+=s.items.length);
+
+    // build sections HTML
+    const sectionsHtml=band.sections.map(sec=>{
+      const [bg,col]=CAT_COLORS[sec.cat]||DEFAULT_COLORS;
+      const catLabel=`<div class="ab-cat-label" style="background:${bg};color:${col}">${sec.cat}</div>`;
+      const items=sec.items.map(({id,note})=>{
+        const r=RECS.find(x=>x.id===id);if(!r)return"";
+        const gcls=r.grade==="A"?"ab-gA":"ab-gB";
+        return`<div class="ab-item">
+          <div class="ab-gd ${gcls}">${r.grade}</div>
+          <div class="ab-info">
+            <div class="ab-topic">${r.topic}</div>
+            <div class="ab-key">${note}</div>
+          </div>
+        </div>`;
+      }).join("");
+      return`<div class="ab-section">${catLabel}<div class="ab-grid">${items}</div></div>`;
+    }).join("");
+
+    div.innerHTML=`<div class="ab-header" style="${hdrStyle}" onclick="toggleBand(this)">
+      <div class="ab-header-main">
+        <span class="ab-icon">${band.icon||""}</span>
+        <div>
+          <div class="ab-age">${band.label}</div>
+          <div class="ab-sub">${band.sub}</div>
+          ${contextLine}
+        </div>
+      </div>
+      <span class="ab-count">${totalRecs} rec${totalRecs!==1?"s":""}</span>
+      <span class="ab-toggle">${isFirst?"−":"+"}</span>
+    </div>
+    <div class="ab-body ${isFirst?"open":""}">
+      ${sectionsHtml}
+    </div>`;
+    ag.appendChild(div);
+  });
+}
+
+function toggleBand(hdr){
+  const body=hdr.nextElementSibling;
+  const tog=hdr.querySelector(".ab-toggle");
+  const open=body.classList.toggle("open");
+  tog.textContent=open?"−":"+";
+}
+
+function renderFlows(){
+  const fg=document.getElementById("fg");fg.innerHTML="";fg.style.cssText="display:flex;flex-direction:column;gap:1.2rem";
+  FLOWS.forEach(f=>{
+    const fc=document.createElement("div");fc.className="fc";
+    const gbg=f.ga?"background:#d0ebd0;color:#1b4332":"background:#edf4e0;color:#4f8a2c";
+    const html=`<div class="fh"><h3>${f.title}</h3><span class="fh-grade" style="${gbg}">Grade ${f.grade}</span></div>
+    <div class="fb"><div class="hflow">${buildSteps(f.steps)}</div>
+    <div style="margin-top:.9rem;padding:.6rem .8rem;background:var(--lime-wash);border-radius:8px;border-left:3px solid var(--lime)"><span style="font-family:'Source Serif 4',Georgia,serif;font-size:.78rem;color:var(--forest-deep);line-height:1.6;font-style:italic">${f.pearl}</span></div>
+    </div>`;
+    fc.innerHTML=html;
+    fg.appendChild(fc);
+  });
+}
+
+function buildSteps(steps){
+  if(!steps)return"";
+  return steps.map(s=>buildNode(s)).join("");
+}
+
+function buildNode(s){
+  if(!s)return"";
+  const t=s.type;
+  if(t==="arrow-v")return`<div class="hf-arrow"><div class="hf-arrow-v"></div><div class="hf-arrow-tip"></div></div>`;
+  if(t==="start")return`<div class="hf-node start">${s.text.replace(/\n/g,"<br>")}</div>`;
+  if(t==="decision")return`<div class="hf-node decision">${s.text.replace(/\n/g,"<br>")}</div>`;
+  if(t==="grade-a")return`<div class="hf-node grade-a">${s.text.replace(/\n/g,"<br>")}</div>`;
+  if(t==="grade-b")return`<div class="hf-node grade-b">${s.text.replace(/\n/g,"<br>")}</div>`;
+  if(t==="action")return`<div class="hf-node action">${s.text.replace(/\n/g,"<br>")}</div>`;
+  if(t==="stop")return`<div class="hf-node stop">${s.text.replace(/\n/g,"<br>")}</div>`;
+  if(t==="gate"){
+    const rows=s.criteria.map((c,i)=>`
+      <div class="gate-row">
+        <div class="gate-q">${c.q}</div>
+        <div class="gate-no"><span class="gate-no-label">No →</span><span class="gate-no-val">${c.no}</span></div>
+      </div>${i<s.criteria.length-1?'<div class="gate-divider"></div>':''}`).join("");
+    return`<div class="gate-wrap"><div class="gate-title">${s.title||"Eligibility Criteria"}</div>${rows}<div class="gate-pass"><span class="gate-pass-label">All criteria met →</span></div></div>`;
+  }
+  if(t==="optlist"){const rows=s.items.map(x=>`<div class="hf-optrow"><span class="hf-optbullet">◆</span><span>${x}</span></div>`).join("");return`<div class="hf-optlist">${rows}</div>`;}
+  if(t==="info")return`<div class="hf-node info">${s.text.replace(/\n/g,"<br>")}</div>`;
+  if(t==="branch"){
+    const cols=s.cols||s.items.length;
+    const colClass=`cols-${Math.min(cols,4)}`;
+    const cells=s.items.map(item=>{
+      const innerNodes=item.nodes?item.nodes.map(n=>buildNode(n)).join(`<div class="hf-arrow"><div class="hf-arrow-v"></div><div class="hf-arrow-tip"></div></div>`):"";
+      return`<div class="hf-bcell"><div class="hf-bcell-label">${(item.label||"").replace(/\n/g,"<br>")}</div><div class="hf-arrow"><div class="hf-arrow-v"></div><div class="hf-arrow-tip"></div></div>${innerNodes}</div>`;
+    }).join("");
+    return`<div class="hf-branch ${colClass}">${cells}</div>`;
+  }
+  return"";
+}
+
+
+render();
+</script>
+</body>
+</html>
